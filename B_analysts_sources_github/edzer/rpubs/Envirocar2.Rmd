@@ -1,0 +1,240 @@
+Analyzing Envirocar trajectory data with R
+========================================================
+
+We can import the envirocar directly into spatial objects by exploiting the GeoJSON format which is supported by OGR, hence R function readOGR in package rgdal. To read from a https connection, one needs RCurl when on windows.
+
+```{r}
+url = "https://giv-car.uni-muenster.de/stable/rest/tracks/5207d871e4b058cd3d669afe"
+require(rgdal) # readOGR
+layer <- readOGR(url, layer = "OGRGeoJSON")
+class(layer)
+layer[1,]
+```
+
+As we can see, the attribute contains id (point nr) and time (still as factor, not as POSIXt) and the measured values are still in a JSON string that needs to be parsed. For this, we wrote an import function that converts time, parses the JSON into measured values, and adds a units attribute to the sp object:
+
+```{r}
+importEnviroCar = function(file) {
+  require(rjson) # fromJSON
+  require(maptools) # spCbind
+  # read data as spatial object:
+	layer = readOGR(file, layer = "OGRGeoJSON")
+	# convert time from text to POSIXct:
+	layer$time = as.POSIXct(layer$time, format="%Y-%m-%dT%H:%M:%SZ")
+	# the third column is JSON, we want it in a table (data.frame) form:
+	# 1. form a list of lists
+	l1 = lapply(as.character(layer[[3]]), fromJSON)
+	# 2. parse the $value elements in the sublist:
+	l2 = lapply(l1,
+		function(x) as.data.frame(lapply(x, function(X) X$value)))
+	# bind these value elements, row by row, together
+	ret = do.call(rbind, l2)
+	# read the units:
+	units = lapply(l1[1],
+		function(x) as.data.frame(lapply(x, function(X) X$unit)))
+	# add a units attribute to layer
+	layer[[3]] = NULL
+	# add the table as attributes to the spatial object 
+  if (length(layer) == nrow(ret)) {
+	  layer = spCbind(layer, ret)
+	  attr(layer, "units") = units[[1]]
+  	layer
+  } else
+    NULL
+}
+
+url = "https://giv-car.uni-muenster.de/stable/rest/tracks/5207d871e4b058cd3d669afe"
+sp = importEnviroCar(url)
+sp[1,]
+attr(sp, "units")
+```
+
+```{r fig.width=10, fig.height=5}
+library(lattice)
+trellis.par.set(sp.theme())
+spplot(sp, "Consumption", colorkey = TRUE)
+```
+
+Interpolating a point sequence
+------------------------------
+Here, we interpolate the point measurements to a new set of points, using inverse distance weighting
+```{r}
+n = length(sp) * 5 # create 5 points between each observation...
+cc = coordinates(sp)
+newx = approx(cc[,1], n = n)$y # along x,
+newy = approx(cc[,2], n = n)$y # along y,
+crs = CRS(proj4string(sp))
+newpts = SpatialPoints(cbind(newx, newy), crs)
+# Alternatively: convert to SpatialLines, then use spsample
+library(gstat)
+# interpolate Consumption values:
+idw = idw(Consumption~1, sp, newpts)
+```
+We can plot this sequence by
+```{r fig.width=10, fig.height=5}
+spplot(idw[1], colorkey = TRUE, scales = list(draw=TRUE),
+	main = "inverse distance interpolated Fuel Consumption values")
+```
+Here, the new points are evenly distributed between all existing points, meaning that with 5 times as much points, between every two points 4 points are added equidistant. This gives a new point density that resembles the original point density.
+
+Alternatively, we could generate interpolation points
+- globally equispaced (e.g. by using spsample over a line, type = "regular")
+- equidistant in time, by taking time of measurement into account
+
+Aggregation of trajectory data: spatial
+-----------------------------
+We can aggregate to a 5 x 5 grid, using an arbitray aggregation function, here max
+```{r}
+bb = bbox(sp)
+grd = GridTopology(bb[,1], apply(bb,1,diff)/5, c(5,5))
+sp.agg = aggregate(sp[-1], SpatialGrid(grd, crs), max)
+```
+and show the results, for 
+```{r fig.width=10, fig.height=10}
+spplot(sp.agg[-c(1,2,8)], colorkey = TRUE,
+	sp.layout = list("sp.points", sp, col=3),
+	main = "maximum measured value per grid cell")
+```
+
+Aggregation: temporal
+---------------------
+When looking at temporal variability, we see that for this trajectory the values are very unequally distrubed, indicating a break in the trajectory
+```{r}
+plot(y = sp$Consumption, x = sp$time)
+title("Fuel consumption over time")
+```
+We can also aggregate to time intervals, e.g. 10 min values. For this, we will convert the points to a zoo object (time series)
+```{r}
+library(zoo)
+xx = zoo(sp$Consumption, sp$time)
+plot(aggregate(xx, cut(sp$time, "5 min"), mean))
+points(xx)
+title("10-minute mean Consumption (l/h)")
+```
+
+After having played with spatial objects (package sp) and temporal objects (package zoo),  we can convert these data into spatio-temporal objects (package spacetime):
+```{r}
+library(spacetime)
+stidf = STIDF(geometry(sp), sp$time, sp@data)
+stplot(geometry(stidf), main = "trajectory points, cut in 6 time slices with equal amount of points")
+```
+plots the geometry of the spatial points, over time, cutting time in six parts with an equal number of
+observations. 
+
+Trajectory data can be represented as `Track` object,
+```{r}
+track = Track(stidf)
+tracks = Tracks(list(tr1 = track))
+tracksCollection = TracksCollection(list(tr = tracks))
+stplot(tracksCollection)
+```
+
+The next plot adds attribute values as colour:
+```{r fig.width=10, fig.height=5}
+stplot(tracksCollection, attr = "speed", lwd=3, scales=list(draw=T))
+```
+
+Adding a background map
+-----------------------
+Using package ggmap, we can add a google map background (or other background):
+```{r fig.width=10, fig.height=5}
+bb = matrix(NA, 2,2)
+bb[2,] = c(51.94,51.985)
+bb[1,] = c(7.58,7.67)
+library(ggmap)
+map4ao <- get_map(location = as.vector(bb))
+                  #maptype = "satellite", scale=2, zoom=4)
+## Read the attributes to pass them to grid.raster
+bbMap <- attr(map4ao, 'bb')
+latCenter <- with(bbMap, ll.lat + ur.lat)/2
+lonCenter <- with(bbMap, ll.lon + ur.lon)/2
+height <- with(bbMap, ur.lat - ll.lat)
+width <- with(bbMap, ur.lon - ll.lon)
+## Another component of the sp.layout in spplot
+sp.raster <- list('grid.raster', map4ao,
+                  x=lonCenter, y=latCenter,
+                  width=width, height=height,
+                  default.units='native')
+stplot(tracksCollection, scales = list(draw=TRUE), 
+  sp.layout = sp.raster, 
+	col='red', lwd = 2, main = "google map background")
+```
+
+
+The following code allows conversion from SpatialPoints into SpatialLines, and has been added to sp:
+```{r}
+setAs("SpatialPoints", "Line", function(from)
+    Line(coordinates(from)))
+setAs("SpatialPoints", "Lines", function(from)
+    Lines(as(from, "Line"), "ID"))
+setAs("SpatialPoints", "SpatialLines", function(from)
+    SpatialLines(list(as(from, "Lines")), from@proj4string))
+```
+
+Generalizing a trajectory
+-------------------------
+We can generalize a trajectory using Douglas-Peuker by using gSimplify in rgeos:
+```{r fig.width=10, fig.height=5}
+sl = as(sp, "SpatialLines")
+library(rgeos)
+plot(gSimplify(sl, 0.0005), axes = TRUE) # WRONG: rgeos takes lat/long as Euclidian coords
+plot(sp, add=T,col='red')
+title("generalization in Long/Lat (wrong!)")
+```
+however, without warning this falsely assumes that coordinates are metric, i.e. in a Euclidian system. They are not:
+```{r}
+proj4string(sp)
+```
+How can we resolve this?
+
+Reprojecting data to UTM
+------------------------
+Package rgdal contains code to reproject data:
+```{r fig.width=10, fig.height=5}
+library(rgdal)
+utm=CRS("+proj=utm +zone=32 +north +ellps=WGS84 +datum=WGS84 +units=m +no_defs")
+slT = spTransform(sl, utm)
+0.0005 * 110e3 # approximate meters per degree latitude
+plot(gSimplify(slT, 55), axes = TRUE) # RIGHT: rgeos takes coords Euclidian
+plot(spTransform(sp, utm), add=T, col='red')
+title("generalization in UTM zone 32N")
+```
+
+A plot of the (projected) simplified trajectory, here represented by a set of selected points, is created by
+1. conversion to lines, 
+2. simplifying the line, 
+3. conversion to points, 
+4. matching to the full set of points, and 
+5. selection:
+```{r fig.width=10, fig.height=5}
+sl.simplified = gSimplify(slT, 55) # 2
+sp.simplified = as(sl.simplified, "SpatialPoints") # 3
+sp = spTransform(sp, utm)
+sel = zerodist2(sp.simplified, sp, 1e-3)[,2] # 4
+sp.selected = sp[sel, ] # 5
+length(sp.selected)
+sp.selected[1:3,]
+spplot(sp.selected, "Consumption", colorkey=TRUE, main = "selected points according to Douglas-Peuker")
+```
+
+Further problems regarding generalization
+------------------------
+Generalization as done above only retains the spatial path, but ignores time and attributes. One could rather easily implement Douglas-Peuker on higher-dimensional curves e.g. $(x,y,t)$ or $(x,y,t,Attr_1,Attr_2,...,Attr_n)$ but then one needs a distance metric that combines space, time and attributes -- which one would be good?
+
+What have we learned?
+---------------
+1. reading trajectory data is tricky: some trajectories have no attributes for part of the points, some have a different number of attributes; this make joining them difficult (but not impossible)
+2. subsampling, or generalizing the trajectories is easy if we only focus on space (Douglas-Peuker,
+rgeos::gSimplify), but needs difficult choices if time and/or attributes are taken into account too
+3. densifying by interpolation is easy, but one needs to choose where to put extra points: equally spaced between observation points, equally distributed over space, equally distributed over time?
+4. aggregating trajectory data leads to change of support: new values are now valid for a grid cell, or a polyline, and for a time interval; we haven't addressed colouring 
+
+Open questions
+--------------
+0. Should R take care of the heterogeneity in the data served, or should the data served be consistent?
+1. How do we aggregate over multiple trajectories, e.g. when they have different sampling rates? Simply take the points, or weight by interval length or duration?
+2. How do we assign trajectories to road segments?
+3. How do we aggregate over space AND time, and how do we visualize this?
+4. How do we analyze (e.g., summarize) trajectories, within drivers and between drivers?
+5. How do we compare trajectories, how do we compare drivers?
+

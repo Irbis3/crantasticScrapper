@@ -1,0 +1,5 @@
+#!/usr/bin/Rscript 
+
+setwd( "~/git/Rcpp11" )
+system( "R CMD INSTALL Rcpp14" )
+

@@ -1,0 +1,5 @@
+library(raster)
+library(gstat)
+m <- vgm(.59, "Sph", 874, .04)
+kr <- krige(formula = Mean_precip~ 1, locations = dIn(), newdata = gddf)
+r <- raster(kr)

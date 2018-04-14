@@ -48,3 +48,26 @@ download_packages_for_author <- function(author_name) {
 # Usage - following code could be used to download packages from 100 authors
 names <- (get_authors() %>% select(name))[1101:1200,]
 lapply(names, download_packages_for_author)
+
+authors <- get_authors()
+id <- substr(authors$link, 10, 20)
+authors_with_id <- cbind(authors, id)
+
+
+
+author_dirs <- list.dirs("output/sources/authors", recursive = FALSE)
+authors_packages <- list.dirs(author_dirs[1], recursive = FALSE)
+
+
+#analyze package
+package_dir <- authors_packages[1]
+filenames <- list.files(package_dir, pattern="*.R", full.names=TRUE)
+filenames[1]
+#analyze file
+con = file(filenames[1], "r")
+lines <- readLines(con)
+
+lines_num <- length(lines)
+lines_length <- unlist(lapply(lines, nchar))
+functions_num <- sum(grepl("function\\(", lines))
+comments_num <- sum(grepl("^\\s*#", lines))

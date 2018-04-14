@@ -1,0 +1,1 @@
+file.edit(.pathtofile("my_first_document.Rmd"))

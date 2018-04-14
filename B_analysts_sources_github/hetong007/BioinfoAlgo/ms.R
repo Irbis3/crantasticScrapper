@@ -1,0 +1,6 @@
+txt = readLines('rosalind_ms.txt')
+a = as.numeric(unlist(strsplit(txt[2],' ')))
+ans = sort(a)
+ans = format(ans,scientific = FALSE)
+ans = paste(ans,collapse = ' ')
+writeLines(ans,'ms.txt')

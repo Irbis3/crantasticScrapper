@@ -1,0 +1,1911 @@
+
+
+####
+# Gas-phase reactions and rate constants for atmospherically-relevant species
+# from the Master Chemical Mechanism (MCM) v3.2
+
+####
+# Reactions of alcohols
+####
+
+# Methanol
+CH3OH_OH__HO2_HCHO <- "2.85E-12 * exp(-345/temp)"
+
+# Ethanol
+C2H5OH_OH__C2H5O  <- "3.0E-12 * exp(20/temp) * 0.05"
+C2H5OH_OH__CH3CHO_HO2 <- "3.0E-12 * exp(20/temp) * 0.9"
+C2H5OH_OH__HOCH2CH2O2 <- "3.0E-12 * exp(20/temp) * 0.05"
+
+# 1-Propanol (n-propanol)
+NPROPOL_OH__C2H5CHO_HO2 <- "4.6E-12 * exp(70/temp) * 0.494"
+NPROPOL_OH__C2H5CHO_HO1C3O2 <- "4.6E-12 * exp(70/temp) * 0.063" 
+NPROPOL_OH__C2H5CHO_HYPROPO2 <- "4.6E-12 * exp(70/temp) * 0.443"
+
+# 2-Propanol (i-propanol)
+IPROPOL_OH__CH3COCH3_HO2 <- "2.6E-12 * exp(200/temp) * 0.86"
+IPROPOL_OH__IPROPOLO2 <- "2.6E-12 * exp(200/temp) * 0.139"
+
+# 1-Butanol (n-butanol)
+NBUTOL_OH__C3H7CHO_HO2 <- "5.3E-12 * exp(140/temp) * 0.358"
+NBUTOL_OH__NBUTOLAO2 <- "5.3E-12 * exp(140/temp) * 0.321"
+NBUTOL_OH__NBUTOLBO2 <- "5.3E-12 * exp(140/temp) * 0.321"
+
+# 2-Butanol (sec-butanol)
+BUT2OL_OH__BUT2OLO2 <- "8.7E-12 * 0.361"
+BUT2OL_OH__MEK_HO2 <- "8.7E-12 * 0.639"
+
+# 2-Methyl-1-propanol (i-butanol)
+IBUTOL_OH__IBUTOLBO2 <- "2.73E-12 * exp(352/temp) * 0.558"
+IBUTOL_OH__IBUTOLCO2 <- "2.73E-12 * exp(352/temp) * 0.090"
+IBUTOL_OH__IPRCHO_HO2 <- "2.73E-12 * exp(352/temp) * 0.352"
+
+# 2-Methyl-2-propanol (t-butanol)
+TBUTOL_OH__TBUTOLO2 <- "1.6E-12 * exp(-121/temp) * 0.888"
+TBUTOL_OH__TC4H9O <- "1.6E-12 * exp(-121/temp) * 0.112"
+
+# 3-Pentanol
+PECOH_OH__DIEK_HO2 <- "1.22E-11 * 0.436"
+PECOH_OH__HO3C5O2 <- "1.22E-11 * 0.070"
+PECOH_OH__PE2ENEBO2 <- "1.22E-11 * 0.493"
+
+# 2-Methyl-1-butanol
+IPEAOH_OH__BUT2CHO_HO2 <- "1.12E-11 * 0.288"
+IPEAOH_OH__HM2C43O2 <- "1.12E-11 * 0.258"
+IPEAOH_OH__M2BUOL2O2 <- "1.12E-11 * 0.454"
+
+# 3-Methyl-1-butanol (i-pentanal, i-amyl alcohol)
+ME3BUOL_OH__C3ME3CHO_HO2 <- "1.31E-11 * 0.288"
+ME3BUOL_OH__HM33C3O2 <- "1.31E-11 * 0.454"
+ME3BUOL_OH__ME3BUOLO2 <- "1.31E-11 * 0.258"
+
+# 2-Methyl-2-butanol 
+IPECOH_OH__HO2M2C4O2 <- "3.85E-12 * 0.100"
+IPECOH_OH__ME2BU2OLO2 <- "3.85E-12 * 0.701"
+IPECOH_OH__PROL11MO2 <- "3.85E-12 * 0.199"
+
+# 3-Methyl-2-butanol 
+IPEBOH_OH__H2M3C4O2 <- "1.24E-11 * 0.074"
+IPEBOH_OH__ME2BUOLO2 <- "1.24E-11 * 0.463"
+IPEBOH_OH__MIPK <- "1.24E-11 * 0.463"
+
+# Cyclohexanol
+CYHEXOL_OH__CYHEXOLAO2 <- "1.77E-11 * 0.739"
+CYHEXOL_OH__CYHEXONE <- "1.77E-11 * 0.261"
+
+# 4-Hydroxy-4-methyl-2-pentanone (diacetone alcohol)
+MIBKAOH_OH__MIBKAOHAO2 <- "2.88E-12 * 0.693"
+MIBKAOH_OH__MIBKAOHBO2 <- "2.88E-12 * 0.270"
+MIBKAOH_OH__MIBKHO4O2 <- "2.88E-12 * 0.037"
+MIBKAOH__TBUTOLO2_CH3CO3 <- "J22"
+
+# Ethane-1,2-diol (ethylene glycol) 
+ETHGLY_OH__HOCH2CHO <- "1.45E-11"
+
+# Propane-1,2-diol (propylene glycol)
+PROPGLY_OH__ACETOL_HO2 <- "1.20E-11 * 0.613"
+PROPGLY_OH__CH3CHOHCHO <- "1.20E-11 * 0.387"
+
+# 2-Methyl-3-buten-2-ol
+MBO_NO3__NMBOAO2 <- "4.6E-14*exp(-400/temp) * 0.65"
+MBO_NO3__NMBOBO2 <- "4.6E-14*exp(-400/temp) * 0.35"
+MBO_O3__HCHO_MBOOOA <- "1.0E-17 * 0.3"
+MBO_O3__IBUTALOH_CH2OOB <- "1.0E-17 * 0.7"
+MBO_OH__MBOAO2 <- "8.1E-12*exp(610/temp) * 0.67"
+MBO_OH__MBOBO2 <- "8.1E-12*exp(610/temp) * 0.33"
+
+
+####
+# Reactions of aldehydes
+####
+
+# Methanal (formaldehyde) 
+HCHO_hv__CO_HO2_HO2 <- "J11"
+HCHO_hv__H2_CO <- "J11"
+HCHO_NO3__HNO3_CO_HO2 <- "5.5E-16"
+HCHO_OH__HO2_CO <- "5.4E-12 * exp(135/temp)"
+
+# Ethanal (acetaldehyde)
+CH3CHO__CH3O2_HO2_CO <- "J13"
+CH3CHO_NO3__HNO3_CH3CO3 <- "1.4E-12 * exp(-1860/temp)"
+CH3CHO_OH__CH3CO3 <- "4.7E-12 * exp(345/temp) * 0.95"
+CH3CHO_OH__HCOCH2O2 <- "4.7E-12 * exp(345/temp) * 0.05"
+
+# Propanal (proprionaldehyde) 
+C2H5CHO_OH__C2H5CO3_HNO3 <- "3.24E-12 * exp(-1860/temp)"
+C2H5CHO_OH__C2H5CO3 <- "4.9E-12 * exp(405/temp)"
+C2H5CHO__C2H5O2_HO2_CO <- "J14"
+
+# Butanal (butyraldehyde) 
+C3H7CHO_NO3__C3H7CO3_HNO3 <- "1.7E-12 * exp(-1500/temp)"
+C3H7CHO_OH__BUTALO2 <- "6.0E-12 * exp(410/temp) * 0.151"
+C3H7CHO_OH__C3H7CO3 <- "6.0E-12 * exp(410/temp) * 0.849"
+C3H7CHO__NC3H7O2_CO_HO2 <- "J15"
+C3H7CHO__CH3CHO_C2H4 <- "J16"
+
+# Methylpropanal (i-butyraldehyde) 
+IPRCHO_NO3__IPRCO3_HNO3 <- "1.67E-12 * exp(-1460/temp)"
+IPRCHO_OH__IBUTALBO2 <- "6.8E-12 * exp(410/temp) * 0.054"
+IPRCHO_OH__IBUTALCO2 <- "6.8E-12 * exp(410/temp) * 0.059"
+IPRCHO_OH__IPRCO3 <- "6.8E-12 * exp(410/temp) * 0.887"
+IPRCHO__IC3H7O2_HO2_CO <- "J17"
+
+# Pentanal (Valeraldehyde)
+C4H9CHO_NO3__C4H9CO3_HNO3 <- "KNO3AL * 5.5"
+C4H9CHO_OH__C4CHOBO2 <- "6.34E-12 * exp(448/temp) * 0.19"
+C4H9CHO_OH__C4H9CO3 <- "6.34E-12 * exp(448/temp) * 0.81"
+C4H9CHO__NC4H9O2 <- "J15"
+
+# Propenal (Acrolein)
+ACR_NO3__ACO3_HNO3 <- "1.72E-13 * exp(-1190/temp)" 
+ACR_OH__ACO3 <- "0.68 * 2.00E-11"
+ACR_OH__ACO3B <- "0.255 * 2.00E-11"
+ACR_OH__OCCOHCO2 <- "0.065 * 2.00E-11"
+ACR_O3__CH2OOB_GLYOX <- "0.5 * 2.9E-19"
+ACR_O3__GLYOOB_HCHO <- "0.5 * 2.9E-19"
+ACR__ACO3 <- "0.3 * J18"
+ACR__C2H4_CO <- "0.4 * J18"
+ACR__HCHO_HO2_CO <- "0.3 * J18"
+
+# 2-Methylpropenal (methacrolein) 
+MACR_NO3__MACO3_HNO3 <- "3.4E-15"
+MACR_O3__HCHO_MGLYOOB <- "1.4E-15 * exp(-2100/temp) * 0.12"
+MACR_O3__MGLYOX_CH2OOG <- "1.4E-15 * exp(-2100/temp) * 0.88"
+MACR_OH__MACO3 <- "8.0E-12 * exp(380/temp) * 0.45"
+MACR_OH__MACRO2 <- "8.0E-12 * exp(380/temp) * 0.47"
+MACR_OH__MACROHO2 <- "8.0E-12 * exp(380/temp) * 0.08"
+MACR__CH3C2H2O2_CO_HO2 <- "J18" 
+MACR__MACO3_HO2 <- "J19"
+
+# 2-Butenal (crotonaldehyde) 
+C4ALDB_NO3__C3DBCO3_HNO3 <- "6E-15 * 0.65"
+C4ALDB_NO3__C4CONO3O2 <- "6E-15 * 0.175"
+C4ALDB_NO3__C4NO3COO2 <- "6E-15 * 0.175"
+C4ALDB_O3__CH3CHO_GLYOOB <- "1.58E-18 * 0.5"
+C4ALDB_O3__GLYOX_CH3CHOOB <- "1.58E-18 * 0.5"
+C4ALDB_OH__C3DBCO3 <- "0.5 * 3.4E-11"
+C4ALDB_OH__C4OCCOHCO2 <- "0.25 * 3.4E-11"
+C4ALDB_OH__COCCOH2CO2 <- "0.25 * 3.4E-11"
+C4ALDB__CH3CHO_CO_HO2_CO_HO2 <- "1.44 * J18" 
+
+####
+# Reactions of alkanes
+####
+
+# Methane
+CH4_CL__CH3O2 <- "6.6E-12 * exp(-1240/temp)"
+CH4_OH__CH3O2 <- "1.85E-12 * exp(-1690/temp)"
+
+# Ethane
+C2H6_CL__C2H5O2 <- "8.3E-11 * exp(-100/temp)"
+C2H6_OH__C2H5O2 <- "6.9E-12 * exp(-1000/temp)"
+
+# Propane
+C3H8_CL__IC3H7O2 <- "1.4E-10 * 0.43 * exp(75/temp)"
+C3H8_CL__NC3H7O2 <- "1.4E-10 * 0.59 * exp(-90/temp)"
+C3H8_OH__IC3H7O2 <- "7.6E-12 * exp(-585/temp) * 0.736"
+C3H8_OH__NC3H7O2 <- "7.6E-12 * exp(-585/temp) * 0.264"
+
+# n-Butane
+NC4H10_CL__NC4H9O2 <- "2.05E-10 * 0.44 * exp(-120/temp)"
+NC4H10_CL__SC4H9O2 <- "2.05E-10 * 0.59 * exp(55/temp)"
+NC4H10_OH__NC4H9O2 <- "9.8E-12 * exp(-425/temp) * 0.127"
+NC4H10_OH__SC4H9O2 <- "9.8E-12 * exp(-425/temp) * 0.873"
+
+# 2-Methyl-propane (i-butane) 
+IC4H10_CL__IC4H9O2 <- "1.43E-10 * 0.564"
+IC4H10_CL__TC4H9O2 <- "1.43E-10 * 0.436"
+IC4H10_OH__IC4H9O2 <- "1.16E-17 * temp@2 * exp(225/temp) * 0.206"
+IC4H10_OH__TC4H9O2 <- "1.16E-17 * temp@2 * exp(225/temp) * 0.794"
+
+# Pentane (n-pentane)
+NC5H12_CL__PEAO2 <- "2.80E-10 * 0.222" 
+NC5H12_CL__PEBO2 <- "2.80E-10 * 0.558"
+NC5H12_CL__PECO2 <- "2.80E-10 * 0.220"
+NC5H12_OH__PEAO2 <- "2.44E-17 * temp@2 * exp(183/temp) * 0.083"
+NC5H12_OH__PEBO2 <- "2.44E-17 * temp@2 * exp(183/temp) * 0.568"
+NC5H12_OH__PECO2 <- "2.44E-17 * temp@2 * exp(183/temp) * 0.349"
+
+# 2-Methylbutane (1-pentane)
+IC5H12_CL__IPEAO2 <- "2.20E-10 * 0.408"
+IC5H12_CL__IPEBO2 <- "2.20E-10 * 0.342"
+IC5H12_CL__IPECO2 <- "2.20E-10 * 0.250"
+IC5H12_OH__IPEAO2 <- "3.70E-12 * 0.087"
+IC5H12_OH__IPEBO2 <- "3.70E-12 * 0.297"
+IC5H12_OH__IPECO2 <- "3.70E-12 * 0.616"
+
+# Hexane (n-hexane)
+NC6H14_CL__HEXAO2 <- "3.40E-10 * 0.182"
+NC6H14_CL__HEXBO2 <- "3.40E-10 * 0.457"
+NC6H14_CL__HEXCO2 <- "3.40E-10 * 0.361"
+NC6H14_OH__HEXAO2 <- "1.53E-17 * temp@2 * exp(414/temp) * 0.061"
+NC6H14_OH__HEXBO2 <- "1.53E-17 * temp@2 * exp(414/temp) * 0.421"
+NC6H14_OH__HEXCO2 <- "1.53E-17 * temp@2 * exp(414/temp) * 0.518"
+
+# 2-Methylpentane
+M2PE_CL__M2PEAO2 <- "2.90E-10 * 0.321"
+M2PE_CL__M2PEBO2 <- "2.90E-10 * 0.269"
+M2PE_CL__M2PECO2 <- "2.90E-10 * 0.213"
+M2PE_CL__M2PEDO2 <- "2.90E-10 * 0.197"
+M2PE_OH__M2PEAO2 <- "5.30E-12 * 0.063"
+M2PE_OH__M2PEBO2 <- "5.30E-12 * 0.218"
+M2PE_OH__M2PECO2 <- "5.30E-12 * 0.267"
+M2PE_OH__M2PEDO2 <- "5.30E-12 * 0.452"
+
+# 3-Methylpentane
+M3PE_CL__M3PEAO2 <- "2.80E-10 * 0.317"
+M3PE_CL__M3PEBO2 <- "2.80E-10 * 0.530"
+M3PE_CL__M3PECO2 <- "2.80E-10 * 0.153"
+M3PE_OH__M3PEAO2 <- "5.40E-12 * 0.060"
+M3PE_OH__M3PEBO2 <- "5.40E-12 * 0.413"
+M3PE_OH__M3PECO2 <- "5.40E-12 * 0.527"
+
+# 2,2-Dimethylbutane
+M22C4_CL__M22C43O2 <- "1.71E-10 * 0.461"
+M22C4_CL__M22C4O2 <- "1.71E-10 * 0.154"
+M22C4_CL__M33C4O2 <- "1.71E-10 * 0.386"
+M22C4_OH__M22C43O2 <- "3.22E-11*exp(-781/temp) * 0.632"
+M22C4_OH__M22C4O2 <- "3.22E-11*exp(-781/temp) * 0.092"
+M22C4_OH__M33C4O2 <- "3.22E-11*exp(-781/temp) * 0.276"
+
+# 2,3-Dimethylbutane
+M23C4_CL__M22C43O2 <- "2.30E-10 * 0.478"
+M23C4_CL__M22C4O2 <- "2.30E-10 * 0.522"
+M23C4_OH__M22C43O2 <- "1.24E-17 * temp@2 * exp(494/temp) * 0.877"
+M23C4_OH__M22C4O2 <- "1.24E-17 * temp@2 * exp(494/temp) * 0.123"
+
+# Heptane (n-heptane)
+NC7H16_CL__HEPTO2 <- "3.90E-10"
+NC7H16_OH__HEPTO2 <- "1.59E-17 * temp@2 * exp(478/temp)"
+
+# 2-Methylhexane
+M2HEX_CL__M2HEXAO2 <- "3.50E-10 * 0.779"
+M2HEX_CL__M2HEXBO2 <- "3.50E-10 * 0.221"
+M2HEX_OH__M2HEXAO2 <- "6.86E-12 * 0.625"
+M2HEX_OH__M2HEXBO2 <- "6.86E-12 * 0.375"
+
+# 3-Methylhexane
+M3HEX_CL__M3HEXAO2 <- "3.11E-10 * 0.793"
+M3HEX_CL__M3HEXBO2 <- "3.11E-10 * 0.207"
+M3HEX_OH__M3HEXAO2 <- "7.15E-12 * 0.558"
+M3HEX_OH__M3HEXBO2 <- "7.15E-12 * 0.442"
+
+# Octane (n-octane)
+NC8H18_CL__OCTO2 <- "4.60E-10"
+NC8H18_OH__OCTO2 <- "2.76E-17 * temp@2 * exp(378/temp)"
+
+# Nonane (n-nonane)
+NC9H20_CL__NONO2 <- "4.80E-10"
+NC9H20_OH__NONO2 <- "2.51E-17 * temp@2 * exp(447/temp)"
+
+# Decane (n-decane)
+NC10H22_CL__DECO2 <- "5.55E-10"
+NC10H22_OH__DECO2 <- "3.13E-17 * temp@2 * exp(416/temp)"
+
+# Hendecane (n-undecane)
+NC11H24_CL__UDECO2 <- "6.17E-10"
+NC11H24_OH__UDECO2 <- "1.29E-11"
+
+# Dodecane (n-dodecane)
+NC12H26_CL__DDECO2 <- "6.74E-10"
+NC12H26_OH__DDECO2 <- "1.39E-11"
+
+# Cyclohexane
+CHEX_CL__CHEXO2 <- "3.50E-10"
+CHEX_OH__CHEXO2 <- "2.88E-17 * temp@2 * exp(309/temp)"
+
+####
+# Reactions of alkenes
+####
+
+# Ethene (ethylene)
+C2H4_NO3__ETHENO3O2 <- "3.3E-12 * exp(-2880/temp)"
+C2H4_O3__HCHO_CH2OOA <- "9.1E-15 * exp(-2580/temp)"
+C2H4_OH__HOCH2CH2O2 <- "KMT15"
+
+# Propene (propylene)
+C3H6_NO3__PRONO3AO2 <- "4.6E-13 * exp(-1155/temp) * 0.35"
+C3H6_NO3__PRONO3BO2 <- "4.6E-13 * exp(-1155/temp) * 0.65"
+C3H6_O3__CH2OOB_CH3CHO <- "5.5E-15 * exp(-1880/temp) * 0.5"
+C3H6_O3__CH3CHOOA_HCHO <- "5.5E-15 * exp(-1880/temp) * 0.5"
+C3H6_OH__HYPROPO2 <- "KMT16 * 0.87"
+C3H6_OH__IPROPOLO2 <- "KMT16 * 0.13"
+
+# 1-Butene
+BUT1ENE_NO3__BU1ENO3O2 <- "3.2E-13 * exp(-950/temp) * 0.65"
+BUT1ENE_NO3__C43NO34O2 <- "3.2E-13 * exp(-950/temp) * 0.35"
+BUT1ENE_O3__C2H5CHOOA_HCHO <- "3.55E-15 * exp(-1745/temp) * 0.5"
+BUT1ENE_O3__CH2OOB_C2H5CHO <- "3.55E-15 * exp(-1745/temp) * 0.5"
+BUT1ENE_OH__HO3C4O2 <- "6.6E-12 * exp(465/temp) * 0.13"
+BUT1ENE_OH__NBUTOLAO2 <- "6.6E-12 * exp(465/temp) * 0.87"
+
+# cis-2-Butene
+CBUT2ENE_NO3__C42NO33O2 <- "3.50E-13"
+CBUT2ENE_O3__CH3CHO_CH3CHOOB <- "3.22E-15 * exp(-968/temp)"
+CBUT2ENE_OH__BUT2OLO2 <- "1.10E-11 * exp(487/temp)"
+
+# trans-2-Butene
+TBUT2ENE_NO3__C42NO33O2 <- "3.90E-13"
+TBUT2ENE_O3__CH3CHO_CH3CHOOB <- "6.64E-15 * exp(-1059/temp)"
+TBUT2ENE_OH__BUT2OLO2 <- "1.01E-11 * exp(550/temp)"
+
+# 2-Methylpropene (i-butene) 
+MEPROPENE_NO3__MPRANO3O2 <- "3.4E-13 * 0.8"
+MEPROPENE_NO3__MPRBNO3O2 <- "3.4E-13 * 0.2"
+MEPROPENE_O3__CH2OOC_CH3COCH3 <- "2.7E-15 * exp(-1630/temp) * 0.5"
+MEPROPENE_O3__CH3CCH3OOA_HCHO <- "2.7E-15 * exp(-1630/temp) * 0.5"
+MEPROPENE_OH__IBUTOLBO2 <- "9.4E-12 * exp(505/temp) * 0.924"
+MEPROPENE_OH__TBUTOLO2 <- "9.4E-12 * exp(505/temp) * 0.076"
+
+# 1-Pentene
+PENT1ENE_NO3__C51NO32O2 <- "1.20E-14 * 0.65"
+PENT1ENE_NO3__C52NO31O2 <- "1.20E-14 * 0.35"
+PENT1ENE_O3__C3H7CHOOA_HCHO <- "1.00E-17 * 0.5"
+PENT1ENE_O3__CH2OOB_C3H7CHO <- "1.00E-17 * 0.5"
+PENT1ENE_OH__PE1ENEAO2 <- "5.86E-12 * exp(500/temp) * 0.87"
+PENT1ENE_OH__PE1ENEBO2 <- "5.86E-12 * exp(500/temp) * 0.13"
+
+# 1-Hexene
+HEX1ENE_NO3__C65NO36O2 <- "1.20E-14 * 0.35"
+HEX1ENE_NO3__C66NO35O2 <- "1.20E-14 * 0.65"
+HEX1ENE_O3__C4H9CHO_CH2OOB <- "1.10E-17 * 0.5"
+HEX1ENE_O3__NC4H9CHOOA_HCHO <- "1.10E-17 * 0.5"
+HEX1ENE_OH__C6OH5O2 <- "3.70E-11 * 0.870"
+HEX1ENE_OH__HO5C6O2 <- "3.70E-11 * 0.130"
+
+# cis-2-Hexene
+CHEX2ENE_NO3__C62NO33O2 <- "3.70E-13 * 0.5"
+CHEX2ENE_NO3__C63NO32O2 <- "3.70E-13 * 0.5"
+CHEX2ENE_O3__C3H7CHO_CH3CHOOB <- "1.60E-16 * 0.5"
+CHEX2ENE_O3__CH3CHO_C3H7CHOOB <- "1.60E-16 * 0.5"
+CHEX2ENE_OH__C64OH5O2 <- "6.00E-11 * 0.5"
+CHEX2ENE_OH__C65OH4O2 <- "6.00E-11 * 0.5"
+
+# trans-2-Hexene
+THEX2ENE_NO3__C62NO33O2 <- "3.70E-13 * 0.5"
+THEX2ENE_NO3__C63NO32O2 <- "3.70E-13 * 0.5"
+THEX2ENE_O3__C3H7CHO_CH3CHOOB <- "1.60E-16 * 0.5"
+THEX2ENE_O3__CH3CHO_C3H7CHOOB <- "1.60E-16 * 0.5"
+THEX2ENE_OH__C64OH5O2 <- "6.00E-11 * 0.5"
+THEX2ENE_OH__C65OH4O2 <- "6.00E-11 * 0.5"
+
+# 2,3-Dimethyl but-2-ene
+DM23BU2ENE_NO3__C4ME2NO3O2 <- "5.72E-11"
+DM23BU2ENE_O3__CH3CCH3OOC_CH3COCH3 <- "3.03E-15 * exp(-294/temp)"
+DM23BU2ENE_OH__C4ME2OHO2 <- "1.10E-10"
+
+####
+# Reactions of alkynes
+####
+
+# Ethyne (acetylene)
+C2H2_OH__GLYOX_OH <- "KMT17 * 0.636"
+C2H2_OH__HCOOH_CO_HO2 <- "KMT17 * 0.364"
+
+####
+# Reactions of dialkenes
+####
+
+# 1,3-Butadiene
+C4H6_NO3__NBUTDAO2 <- "1.03E-13 * 0.5"
+C4H6_NO3__NBUTDBO2 <- "1.03E-13 * 0.5"
+C4H6_O3__ACR_CH2OOD <- "1.34E-14 * exp(-2283/temp) * 0.5"
+C4H6_O3__ACROOA_HCHO <- "1.34E-14 * exp(-2283/temp) * 0.5"
+C4H6_OH__BUTDAO2 <- "1.48E-11 * exp(448/temp) * 0.217"
+C4H6_OH__BUTDBO2 <- "1.48E-11 * exp(448/temp) * 0.649"
+C4H6_OH__BUTDCO2 <- "1.48E-11 * exp(448/temp) * 0.134"
+
+# 2-Methyl-1,3-butadiene (isoprene)
+C5H8_NO3__NISOPO2 <- "3.15E-12 * exp(-450/temp)"
+C5H8_O3__MACR_CH2OOE <- "1.03E-14 * exp(-1995/temp) * 0.3"
+C5H8_O3__MVK_CH2OOE <- "1.03E-14 * exp(-1995/temp) * 0.2"
+C5H8_O3__MACROOA_HCHO <- "1.03E-14 * exp(-1995/temp) * 0.3"
+C5H8_O3__MVKOOA_HCHO <- "1.03E-14 * exp(-1995/temp) * 0.2"
+C5H8_OH__ISOPAO2 <- "2.7E-11 * exp(390/temp) * 0.148"
+C5H8_OH__ISOPBO2 <- "2.7E-11 * exp(390/temp) * 0.444"
+C5H8_OH__ISOPCO2 <- "2.7E-11 * exp(390/temp) * 0.102"
+C5H8_OH__ISOPDO2 <- "2.7E-11 * exp(390/temp) * 0.306"
+
+####
+# Reactions of monoterpenes
+####
+
+# Alpha pinene
+APINENE_NO3__NAPINAO2 <- "1.2E-12 * exp(490/temp) * 0.65"
+APINENE_NO3__NAPINBO2 <- "1.2E-12 * exp(490/temp) * 0.35"
+APINENE_O3__APINOOA <- "6.3E-16 * exp(-580/temp) * 0.6"
+APINENE_O3__APINOOB <- "6.3E-16 * exp(-580/temp) * 0.4"
+APINENE_OH__APINAO2 <- "1.2E-11 * exp(440/temp) * 0.572"
+APINENE_OH__APINBO2 <- "1.2E-11 * exp(440/temp) * 0.353"
+APINENE_OH__APINCO2 <- "1.2E-11 * exp(440/temp) * 0.075"
+
+# Beta pinene
+BPINENE_NO3__NBPINAO2 <- "2.51E-12 * 0.8"
+BPINENE_NO3__NBPINBO2 <- "2.51E-12 * 0.2"
+BPINENE_O3__NOPINONE_CH2OOF <- "1.50E-17 * 0.4"
+BPINENE_O3__NOPINOOA_HCHO <- "1.50E-17 * 0.6"
+BPINENE_OH__BPINAO2 <- "2.38E-11 * exp(357/temp) * 0.849"
+BPINENE_OH__BPINBO2 <- "2.38E-11 * exp(357/temp) * 0.076"
+BPINENE_OH__BPINCO2 <- "2.38E-11 * exp(357/temp) * 0.075"
+
+# Limonene
+LIMONENE_NO3__NLIMO2 <- "1.22E-11"
+LIMONENE_O3__LIMOOA <- "2.95E-15 * exp(-783/temp) * 0.730"
+LIMONENE_O3__LIMOOB <- "2.95E-15 * exp(-783/temp) * 0.270"
+LIMONENE_OH__LIMAO2 <- "4.28E-11 * exp(401/temp) * 0.408"
+LIMONENE_OH__LIMBO2 <- "4.28E-11 * exp(401/temp) * 0.222"
+LIMONENE_OH__LIMCO2 <- "4.28E-11 * exp(401/temp) * 0.370"
+
+####
+# Reactions of sesquiterpenes
+####
+
+# Beta-caryophyllene
+BCARY_NO3__NBCO2 <- "1.90E-11"
+BCARY_O3__BCAOO <- "1.16E-14 * 0.435"
+BCARY_O3__BCBOO <- "1.16E-14 * 0.435"
+BCARY_O3__BCOOA <- "1.16E-14 * 0.100"
+BCARY_O3__BCOOB <- "1.16E-14 * 0.030"
+BCARY_OH__BCAO2 <- "1.97E-10 * 0.408"
+BCARY_OH__BCBO2 <- "1.97E-10 * 0.222"
+BCARY_OH__BCCO2 <- "1.97E-10 * 0.370"
+
+####
+# Reactions of aromatics
+####
+
+# Benzene
+BENZENE_OH__BZBIPERO2 <- "2.3E-12 * exp(-190/temp) * 0.352"
+BENZENE_OH__BZEPOXMUC_HO2 <- "2.3E-12 * exp(-190/temp) * 0.118"
+BENZENE_OH__PHENOL_HO2 <- "2.3E-12 * exp(-190/temp) * 0.530"
+
+# Methylbenzene (toluene)
+TOLUENE_OH__C6H5CH2O2 <- "1.8E-12 * exp(340/temp) * 0.07"
+TOLUENE_OH__CRESOL_HO2 <- "1.8E-12 * exp(340/temp) * 0.18" 
+TOLUENE_OH__TLBIPERO2 <- "1.8E-12 * exp(340/temp) * 0.65"
+TOLUENE_OH__TLEPOXMUC_HO2 <- "1.8E-12 * exp(340/temp) * 0.10"
+
+# 1,2-Dimethyl benzene (o-xylene)
+OXYL_NO3__OXYLO2_HNO3 <- "4.10E-16"
+OXYL_OH__OXYBIPERO2 <- "1.36E-11 * 0.55"
+OXYL_OH__OXYEPOXMUC_HO2 <- "1.36E-11 * 0.24"
+OXYL_OH__OXYLO2 <- "1.36E-11 * 0.05"
+OXYL_OH__OXYLOL_HO2 <- "1.36E-11 * 0.16"
+
+# 1,3-Dimethyl benzene (m-xylene)
+MXYL_NO3__MXYLO2_HNO3 <- "2.60E-16"
+MXYL_OH__MXYBIPERO2 <- "2.31E-11 * 0.50"
+MXYL_OH__MXYEPOXMUC_HO2 <- "2.31E-11 * 0.29"
+MXYL_OH__MXYLO2 <- "2.31E-11 * 0.04"
+MXYL_OH__MXYLOL_HO2 <- "2.31E-11 * 0.17"
+
+# 1,4-Dimethyl benzene (p-xylene)
+PXYL_NO3__PXYLO2_HNO3 <- "5.00E-16"
+PXYL_OH__PXYBIPERO2 <- "1.43E-11 * 0.625"
+PXYL_OH__PXYEPOXMUC_HO2 <- "1.43E-11 * 0.155"
+PXYL_OH__PXYLO2 <- "1.43E-11 * 0.100"
+PXYL_OH__PXYLOL_HO2 <- "1.43E-11 * 0.120"
+
+# Ethyl benzene
+EBENZ_NO3__C6H5C2H4O2_HNO3 <- "1.20E-16"
+EBENZ_OH__C6H5C2H4O2 <- "7.00E-12 * 0.07"
+EBENZ_OH__EBENZOL_HO2 <- "7.00E-12 * 0.18"
+EBENZ_OH__EBZBIPERO2 <- "7.00E-12 * 0.65"
+EBENZ_OH__EBZPOXMUC_HO2 <- "7.00E-12 * 0.10"
+
+# n-Propyl benzene
+PBENZ_NO3__PHC3O2_HNO3 <- "1.40E-16"
+PBENZ_OH__PBENZOL_HO2 <- "5.80E-12 * 0.18"
+PBENZ_OH__PBZBIPERO2 <- "5.80E-12 * 0.65"
+PBENZ_OH__PBZPOXMUC_HO2 <- "5.80E-12 * 0.10"
+PBENZ_OH__PHC3O2 <- "5.80E-12 * 0.07"
+
+# i-Propyl benzene (cumene)
+IPBENZ_NO3__PHIC3O2_HNO3 <- "1.40E-16"
+IPBENZ_OH__PHIC3O2 <- "6.30E-12 * 0.07"
+IPBENZ_OH__IPBENZOL_HO2 <- "6.30E-12 * 0.18"
+IPBENZ_OH__IPBZBIPRO2 <- "6.30E-12 * 0.65"
+IPBENZ_OH__IPBZPOXMUC_HO2 <- "6.30E-12 * 0.10"
+
+# 1,2,3-Trimethyl benzene (hemimellitene)
+TM123B_NO3__TM123BO2_HNO3 <- "1.90E-15"
+TM123B_OH__TM123BO2 <- "3.27E-11 * 0.06"
+TM123B_OH__TM123BOL_HO2 <- "3.27E-11 * 0.03"
+TM123B_OH__TM123BPRO2 <- "3.27E-11 * 0.70"
+TM123B_OH__TM123OXMUC_HO2 <- "3.27E-11 * 0.21"
+
+# 1,2,4-Trimethyl benzene (pseudocumene)
+TM124B_NO3__TM124BO2_HNO3 <- "1.80E-15"
+TM124B_OH__TM124BO2 <- "3.25E-11 * 0.06"
+TM124B_OH__TM124OL_HO2 <- "3.25E-11 * 0.03"
+TM124B_OH__TM124BPRO2 <- "3.25E-11 * 0.61"
+TM124B_OH__TM124OXMUC_HO2 <- "3.25E-11 * 0.30"
+
+# 1,3,5-Trimethyl benzene (mesitylene)
+TM135B_NO3__TMBO2_HNO3 <- "8.80E-16"
+TM135B_OH__TMBO2 <- "5.67E-11 * 0.03"
+TM135B_OH__TM135BZOL_HO2 <- "5.67E-11 * 0.04"
+TM135B_OH__TM135BPRO2 <- "5.67E-11 * 0.79"
+TM135B_OH__TM135OXMUC_HO2 <- "5.67E-11 * 0.14"
+
+# 1-Ethyl 2-methyl benzene (o-ethyl toluene)
+OETHTOL_NO3__ETOLO2_HNO3 <- "7.10E-16"
+OETHTOL_OH__ETOLO2 <- "1.19E-11 * 0.05"
+OETHTOL_OH__OETOH_HO2 <- "1.19E-11 * 0.16"
+OETHTOL_OH__OETLBIPRO2 <- "1.19E-11 * 0.55"
+OETHTOL_OH__OETLPOXMUC_HO2 <- "1.19E-11 * 0.24"
+
+# 1-Ethyl 3-methyl benzene (m-ethyl toluene)
+METHTOL_NO3__ETOLO2_HNO3 <- "4.50E-16"
+METHTOL_OH__ETOLO2 <- "1.86E-11 * 0.04"
+METHTOL_OH__METOH_HO2 <- "1.86E-11 * 0.17"
+METHTOL_OH__METLBIPRO2 <- "1.86E-11 * 0.50"
+METHTOL_OH__METLPOXMUC_HO2 <- "1.86E-11 * 0.29"
+
+# 1-Ethyl 4-methyl benzene (p-ethyl toluene)
+PETHTOL_NO3__ETOLO2_HNO3 <- "8.60E-16"
+PETHTOL_OH__ETOLO2 <- "1.18E-11 * 0.100"
+PETHTOL_OH__PETOH_HO2 <- "1.18E-11 * 0.120"
+PETHTOL_OH__PETLBIPRO2 <- "1.18E-11 * 0.625"
+PETHTOL_OH__PETLPOXMUC_HO2 <- "1.18E-11 * 0.155"
+
+# 1,3-Dimethyl 5-ethyl benzene (3,5-dimethyl ethyl benzene)
+DIME35EB_NO3__DM35EBO2_HNO3 <- "1.50E-15"
+DIME35EB_OH__DM35EBO2 <- "5.67E-11 * 0.03"
+DIME35EB_OH__DMEPHOH_HO2 <- "5.67E-11 * 0.04"
+DIME35EB_OH__DMEBIPRO2 <- "5.67E-11 * 0.79"
+DIME35EB_OH__DMEBPOXMUC_HO2 <- "5.67E-11 * 0.14"
+
+# 1,3-Diethyl 5-methylbenzene (3,5-diethyl toluene)
+DIET35TOL_NO3__DE35TO2_HNO3 <- "2.60E-15"
+DIET35TOL_OH__DE35TO2 <- "5.67E-11 * 0.03"
+DIET35TOL_OH__DEMPHOH_HO2 <- "5.67E-11 * 0.04"
+DIET35TOL_OH__DETLBIPRO2 <- "5.67E-11 * 0.79"
+DIET35TOL_OH__DETLPOXMUC_HO2 <- "5.67E-11 * 0.14"
+
+# Ethenyl benzene (styrene)
+STYRENE_NO3__NSTYRENO2 <- "1.50E-12"
+STYRENE_O3__CH2OOB_BENZAL <- "1.70E-17 * 0.5"
+STYRENE_O3__HCHO_PHCHOOA <- "1.70E-17 * 0.5"
+STYRENE_OH__STYRENO2 <- "5.80E-11"
+
+# Benzenecarbonal (benzaldehyde)
+BENZAL__C6H5O2_HO2_CO <- "J18"
+BENZAL__C6H5CO3_HO2 <- "J19"
+BENZAL_NO3__C6H5CO3_HNO3 <- "2.40E-15"
+BENZAL_OH__C6H5CO3 <- "5.9E-12 * exp(225/temp)"
+
+####
+# Reactions of esters
+####
+
+# Methyl formate
+CH3OCHO_OH__CH3O2 <- "9.39E-13 * exp(-461/temp) * 0.450"
+CH3OCHO_OH__CHOOCH2O2 <- "9.39E-13 * exp(-461/temp) * 0.550"
+
+# Methyl acetate
+METHACET_OH__METHACETO2 <- "8.54E-19 * temp@2 * exp(455/temp) * 0.685"
+METHACET_OH__MOCOCH2O2 <- "8.54E-19 * temp@2 * exp(455/temp) * 0.315"
+
+# Ethyl acetate
+ETHACET_OH__ACETC2H4O2 <- "6.92E-19 * temp@2 * exp(986/temp) * 0.095"
+ETHACET_OH__EOCOCH2O2 <- "6.92E-19 * temp@2 * exp(986/temp) * 0.057"
+ETHACET_OH__ETHACETO2 <- "6.92E-19 * temp@2 * exp(986/temp) * 0.848"
+
+# n-Propyl acetate
+NPROACET_OH__NPROACEAO2 <- "1.39E-18 * temp@2 * exp(991/temp) * 0.364"
+NPROACET_OH__NPROACEBO2 <- "1.39E-18 * temp@2 * exp(991/temp) * 0.583"
+NPROACET_OH__NPROACECO2 <- "1.39E-18 * temp@2 * exp(991/temp) * 0.053"
+
+# i-Propyl acetate
+IPROACET_OH__IPRACBO2 <- "2.64E-13 * exp(770/temp) * 0.098"
+IPROACET_OH__IPROACETO2 <- "2.64E-13 * exp(770/temp) * 0.902"
+
+# n-Butyl acetate
+NBUTACET_OH__NBUACETAO2 <- "2.48E-18 * temp@2 * exp(926/temp) * 0.261"
+NBUTACET_OH__NBUACETBO2 <- "2.48E-18 * temp@2 * exp(926/temp) * 0.321"
+NBUTACET_OH__NBUACETCO2 <- "2.48E-18 * temp@2 * exp(926/temp) * 0.417"
+
+# s-Butyl acetate
+SBUTACET_OH__SBUACETAO2 <- "6.66E-13 * exp(640/temp) * 0.768"
+SBUTACET_OH__SBUACETBO2 <- "6.66E-13 * exp(640/temp) * 0.232"
+
+# t-Butyl acetate
+TBUACET_OH__MCOOTBO2 <- "1.88E-12 * exp(-395/temp) * 0.834"
+TBUACET_OH__TBOCOCH2O2 <- "1.88E-12 * exp(-395/temp) * 0.166"
+
+####
+# Reactions of ethers and glycol ethers
+####
+
+# Dimethyl ether
+CH3OCH3_NO3__CH3OCH2O2_HNO3 <- "2.60E-16"
+CH3OCH3_OH__CH3OCH2O2 <- "5.7E-12 * exp(-215/temp)"
+
+# Diethyl ether
+DIETETHER_NO3__DIETETO2_HNO3 <- "2.80E-15"
+DIETETHER_OH__DIETETO2 <- "8.91E-18 * temp@2 * exp(837/temp) * 0.928"
+DIETETHER_OH__ETOC2O2 <- "8.91E-18 * temp@2 * exp(837/temp) * 0.072"
+
+# Methyl t-butyl ether
+MTBE_NO3__MTBEAO2_HNO3 <- "6.40E-16 * 0.20"
+MTBE_NO3__MTBEBO2_HNO3 <- "6.40E-16 * 0.80"
+MTBE_OH__MTBEAO2 <- "6.54E-18 * temp@2 * exp(483/temp) * 0.51"
+MTBE_OH__MTBEBO2 <- "6.54E-18 * temp@2 * exp(483/temp) * 0.49"
+
+# Di i-propyl ether
+DIIPRETHER_NO3__DIIPRETO2_HNO3 <- "6.50E-15"
+DIIPRETHER_OH__DIIPRETO2 <- "2.20E-12 * exp(457/temp) * 0.827"
+DIIPRETHER_OH__IPROMC2O2 <- "2.20E-12 * exp(457/temp) * 0.173"
+
+# Ethyl t-butylether
+ETBE_NO3__ETBEAO2_HNO3 <- "1.91E-15 * 0.267"
+ETBE_NO3__ETBEBO2_HNO3 <- "1.91E-15 * 0.733"
+ETBE_OH__ETBEAO2 <- "6.82E-18 * temp@2 * exp(800/temp) * 0.18"
+ETBE_OH__ETBEBO2 <- "6.82E-18 * temp@2 * exp(800/temp) * 0.76"
+ETBE_OH__ETBECO2 <- "6.82E-18 * temp@2 * exp(800/temp) * 0.06"
+
+# 2-Methoxy ethanol
+MO2EOL_NO3__MO2EOLAO2_HNO3 <- "1.53E-15 * 0.915"
+MO2EOL_NO3__MO2EOLBO2_HNO3 <- "1.53E-15 * 0.085"
+MO2EOL_OH__MEMOXYCHO_HO2 <- "4.10E-12 * exp(325/temp) * 0.358"
+MO2EOL_OH__MO2EOLAO2 <- "4.10E-12 * exp(325/temp) * 0.533"
+MO2EOL_OH__MO2EOLBO2 <- "4.10E-12 * exp(325/temp) * 0.109"
+
+# 2-Ethoxy ethanol
+EOX2EOL_NO3__EOX2EOLAO2_HNO3 <- "2.80E-15 * 0.5"
+EOX2EOL_NO3__EOX2EOLBO2_HNO3 <- "2.80E-15 * 0.5"
+EOX2EOL_OH__EOX2EOLAO2 <- "1.80E-11 * 0.399"
+EOX2EOL_OH__EOX2EOLBO2 <- "1.80E-11 * 0.333"
+EOX2EOL_OH__EOX2ETCHO <- "1.80E-11 * 0.268"
+
+# 1-Methoxy 2-propanol
+PR2OHMOX_NO3__PR2OHMOXO2_HNO3 <- "3.76E-15"
+PR2OHMOX_OH__H2C3OCO2 <- "1.59E-11 * 0.099"
+PR2OHMOX_OH__PR2OHMOXO2 <- "1.59E-11 * 0.484"
+PR2OHMOX_OH__PRONEMOX <- "1.59E-11 * 0.417"
+
+# 2-Butoxy ethanol
+BUOX2ETOH_NO3__BOX2EOHAO2_HNO3 <- "4.65E-15 * 0.70"
+BUOX2ETOH_NO3__BOX2EOHBO2_HNO3 <- "4.65E-15 * 0.30"
+BUOX2ETOH_OH__BOX2ECHO_HO2 <- "2.31E-11 * 0.196"
+BUOX2ETOH_OH__BOX2EOHAO2 <- "2.31E-11 * 0.513"
+BUOX2ETOH_OH__BOX2EOHBO2 <- "2.31E-11 * 0.291"
+
+# 1-Butoxy 2-propanol
+BOX2PROL_NO3__BOXPROLAO2_HNO3 <- "6.5E-15 * 0.5"
+BOX2PROL_NO3__BOXPROLBO2_HNO3 <- "6.5E-15 * 0.5"
+BOX2PROL_OH__BOXPROLAO2 <- "2.78E-11 * 0.486"
+BOX2PROL_OH__BOXPROLBO2 <- "2.78E-11 * 0.276"
+BOX2PROL_OH__BOXPRONE <- "2.78E-11 * 0.238"
+
+####
+# Reactions of ketones
+####
+            
+# Propanone (acetone)
+CH3COCH3_OH__CH3COCH2O2 <- "(8.8E-12 * exp(-1320/temp)) + (1.7E-14 * exp(423/temp))"
+CH3COCH3__CH3CO3_CH3O2 <- "J21"
+
+# Butanone (methyl ethyl ketone)
+MEK_OH__MEKAO2 <- "1.5E-12 * exp(-90/temp) * 0.459"
+MEK_OH__MEKBO2 <- "1.5E-12 * exp(-90/temp) * 0.462"
+MEK_OH__MEKCO2 <- "1.5E-12 * exp(-90/temp) * 0.079"
+MEK__CH3CO3_C2H5O2 <- "J22"
+
+# 2-Pentanone (methyl n-propyl ketone)
+MPRK_OH__CO2C54O2 <- "4.90E-12 * 0.818"
+MPRK_OH__MPRKAO2 <- "4.90E-12 * 0.182"
+MPRK__CH3CO3_NC3H7O2 <- "J22"
+
+# 3-Pentanone (diethyl ketone)
+DIEK_OH__DIEKAO2 <- "2.00E-12 * 0.501"
+DIEK_OH__DIEKBO2 <- "2.00E-12 * 0.499"
+DIEK__C2H5CHO_C2H5O2 <- "J22"
+
+# 3-Methyl 2-butanone (methyl i-propyl ketone)
+MIPK_OH__MIPKAO2 <- "2.77E-12 * 0.523"
+MIPK_OH__MIPKBO2 <- "2.77E-12 * 0.477"
+MIPK__CH3CO3_IC3H7O2 <- "J22"
+
+# 2-Hexanone (methyl n-butyl ketone)
+HEX2ONE_OH__HEX2ONAO2 <- "9.10E-12 * 0.715"
+HEX2ONE_OH__HEX2ONBO2 <- "9.10E-12 * 0.162"
+HEX2ONE_OH__HEX2ONCO2 <- "9.10E-12 * 0.123"
+HEX2ONE__CH3CO3_NC4H9O2 <- "J22"
+
+# 3-Hexanone (ethyl n-propyl ketone)
+HEX3ONE_OH__HEX3ONAO2 <- "6.90E-12 * 0.638"
+HEX3ONE_OH__HEX3ONBO2 <- "6.90E-12 * 0.142"
+HEX3ONE_OH__HEX3ONCO2 <- "6.90E-12 * 0.110"
+HEX3ONE_OH__HEX3ONDO2 <- "6.90E-12 * 0.110"
+HEX3ONE__C2H5CO3_NC3H7O2 <- "J22"
+
+# 4-Methyl 2-pentanone (methyl i-butyl ketone)
+MIBK_OH__MIBKAO2 <- "1.41E-11 * 0.91"
+MIBK_OH__MIBKBO2 <- "1.41E-11 * 0.09"
+MIBK__CH3CO3_IC4H9O2 <- "J22"
+
+# 3,3-Dimethyl 2-butanone (methyl t-butyl ketone)
+MTBK_OH__MTBKO2 <- "1.21E-12"
+MTBK__TC4H9O2_CH3CO3 <- "J22"
+
+# Cyclohexanone
+CYHEXONE_OH__CYHXONAO2 <- "5.40D-12"
+CYHEXONE__C2H4_C3H6 <- "J22 * 0.5"
+CYHEXONE__PENT1ENE <- "J22 * 0.5"
+
+####
+# Reactions of organic acids
+####
+
+# Methanoic acid
+HCOOH_OH__HO2 <- "4.5E-13"
+
+# Ethanoic acid
+CH3CO2H_OH__CH3O2 <- "8.0E-13"
+
+# Propanoic acid
+PROPACID_OH__C2H5O2 <- "1.2E-12"
+
+####
+# Reactions of chloro and hydrochlorocarbons
+####
+
+# Chloromethane (methyl chloride)
+CH3CL_OH__CH2CLO2 <- "7.33E-18 * temp@2 * exp(-809/temp)"
+
+# Dichloromethane (methylene dichloride)
+CH2CL2_OH__CHCL2O2 <- "6.14E-18 * temp@2 * exp(-389/temp)"
+
+# Trichloromethane (chloroform)
+CHCL3_OH__CCL3O2 <- "1.80E-18 * temp@2 * exp(-129/temp)"
+
+# 1,1,1-Trichloroethane (methyl chloroform)
+CH3CCL3_OH__CCL3CH2O2 <- "2.25E-18 * temp@2 * exp(-910/temp)"
+
+# Tetrachloroethene (perchloroethylene)
+TCE_OH__TCEOHO2 <- "3.5E-12 * exp(-920/temp)"
+
+# Trichloroethene
+TRICLETH_OH__C2CL3OHAO2 <- "3.0E-13 * exp(565/temp) * 0.50"
+TRICLETH_OH__C2CL3OHBO2 <- "3.0E-13 * exp(565/temp) * 0.50"
+
+# cis-1,2-Dichloroethene
+CDICLETH_OH__C2CL2OHO2 <- "1.94E-12 * exp(90/temp)"
+
+# trans-1,2-Dichloroethene
+TDICLETH_OH__C2CL2OHO2 <- "1.01E-12 * exp(250/temp)"
+
+# 1,2-Dichloroethane
+CH2CLCH2CL_OH__DICLETO2 <- "8.69E-12 * exp(-1070/temp)"
+
+# 1,1-Dichloroethene
+CCL2CH2_OH__CH2OHCL2O2 <- "2.00E-12 * exp(506/temp) * 0.50"
+CCL2CH2_OH__CL2OHCH2O2 <- "2.00E-12 * exp(506/temp) * 0.50"
+
+# 1,2-Dichloropropane
+CL12PROP_OH__CL12PRAO2 <- "4.42E-13 * 0.11"
+CL12PROP_OH__CL12PRBO2 <- "4.42E-13 * 0.60"
+CL12PROP_OH__CL12PRCO2 <- "4.42E-13 * 0.29"
+
+# 1,1-Dichloroethane
+CHCL2CH3_OH__CH3CCL2O2 <- "2.0E-12 * exp(-596/temp) * 0.85"
+CHCL2CH3_OH__CHCL2CH2O2 <- "2.0E-12 * exp(-596/temp) * 0.15"
+
+# Chloroethane
+CH3CH2CL_OH__CH2CLCH2O2 <- "7.78D-18 * temp@2 * exp(-152/temp) * 0.87"
+CH3CH2CL_OH__CH3CHCLO2 <- "7.78D-18 * temp@2 * exp(-152/temp) * 0.13"
+
+# 1,1,2,2-Tetrachloroethane
+CHCL2CHCL2_OH__CHCL2CL2O2 <- "5.13E-13"
+
+# 1,1,2-Trichloroethane
+CH2CLCHCL2_OH__CH2CL3O2 <- "4.44E-18 * temp@2 * exp(-208/temp) * 0.5"
+CH2CLCHCL2_OH__CHCL3O2 <- "4.44E-18 * temp@2 * exp(-208/temp) * 0.5"
+
+# Chloroethene (vinyl chloride)
+VINCL_NO3__CCLNO3O2 <- "2.3E-16 * 0.35"
+VINCL_NO3__CNO3CLO2 <- "2.3E-16 * 0.65"
+VINCL_O3__CHOCL_CH2OOB <- "2.45E-19 * 0.76"
+VINCL_O3__HCHO_CHCLOOA <- "2.45E-19 * 0.24"
+VINCL_OH__CCLOHCH2O2 <- "8.49E-12 * 0.5"
+VINCL_OH__CH2OHCCLO2 <- "8.49E-12 * 0.5"
+
+####
+# Reactions of hydrobromocarbons
+####
+
+# Bromomethane
+CH3BR_OH__CH2BRO2 <- "7.40E-13 * exp(-875/temp)"
+
+# 1,2-Dibromoethane
+DIBRET_OH__DIBRETO2  <- "1.03E-17 * temp@2 * exp(-422/temp)"
+
+####
+# Reactions of other compounds
+####
+
+# Dimethoxy methane
+DMM_NO3__DMMAO2_HNO3 <- "2.60E-16"
+DMM_OH__DMMAO2 <- "4.93E-12 * 0.76"
+DMM_OH__DMMBO2 <- "4.93E-12 * 0.24"
+
+# Dimethyl carbonate
+DMC_OH__DMCO2 <- "3.20E-13"
+
+# Dimethyl sulphide
+DMS_NO3__CH3SCH2O2_HNO3 <- "1.9E-13 * exp(520/temp)"
+DMS_OH__CH3SCH2O2 <- "1.12E-11 * exp(-250/temp)"
+DMS_OH__HODMSO2 <- "KMT18"
+
+# Ethylene oxide (oxirane)
+ETHOX_OH__ETHOXO2 <- "0.95E-13"
+
+####
+# Thermal gas-phase reactions
+####
+
+O__O3 <- "5.6E-34 * N2 * (temp/300)@-2.6 * O2"
+O__O3 <- "6.0E-34 * O2 * (temp/300)@-2.6 * O2"
+O_O3__ <- "8.0E-12 * exp(-2060/temp)"
+O_NO__NO2 <- "KMT01"
+O_NO2__NO <- "5.5E-12 * exp(188/temp)"
+O_NO2__NO3 <- "KMT02"
+O1D__O <- "3.2E-11 * exp(67/temp) * O2"
+O1D__O <- "2.0E-11 * exp(130/temp) * N2"
+NO_O3__NO2 <- "1.4E-12 * exp(-1310/temp)"
+NO2_O3__NO3 <- "1.4E-13 * exp(-2470/temp)"
+NO_NO__NO2_NO2 <- "3.3E-39 * exp(530/temp) * O2"
+NO_NO3__NO2_NO2 <- "1.8E-11 * exp(110/temp)"
+NO2_NO3__NO_NO2 <- "4.5E-14 * exp(-1260/temp)"
+NO2_NO3__N2O5 <- "KMT03"
+O1D__OH_OH <- "2.14E-10 * H2O"
+OH_O3__HO2 <- "1.7E-12 * exp(-940/temp)"
+OH_H2__HO2 <- "7.7E-12 * exp(-2100/temp)"
+OH_CO__HO2 <- "KMT05"
+OH_H2O2__HO2 <- "2.9E-12 * exp(-160/temp)"
+HO2_O3__OH <- "2.03E-16 * ((temp/300)@4.57) * exp(693/temp)"
+OH_HO2__ <- "4.8E-11 * exp(250/temp)"
+HO2_HO2__H2O2 <- "2.20E-13 * KMT06 * exp(600/temp)"
+HO2_HO2__H2O2 <- "1.90E-33 * M * KMT06 * exp(980/temp)"
+OH_NO__HONO <- "KMT07"
+OH_NO2__HNO3 <- "KMT08"
+OH_NO3__HO2_NO2 <- "2.0E-11"
+HO2_NO__OH_NO2 <- "3.45E-12 * exp(270/temp)"
+HO2_NO2__HO2NO2 <- "KMT09"
+OH_HO2NO2__NO2 <- "3.2E-13 * exp(690/temp) * 1.0"
+HO2_NO3__OH_NO2 <- "4.0E-12"
+OH_HONO__NO2 <- "2.5E-12 * exp(260/temp)"
+OH_HNO3__NO3 <- "KMT11"
+O_SO2__SO3 <- "4.0E-32 * exp(-1000/temp) * M"
+OH_SO2__HSO3 <- "KMT12"
+HSO3__HO2_SO3 <- "1.3E-12 * exp(-330/temp) * O2"
+N2O5__NO2_NO3 <- "KMT04"
+HO2NO2__HO2_NO2 <- "KMT10"
+
+####
+# Oxygenated compounds
+####
+
+C2H5O__CH3CHO_HO2 <- "2.4E-14 * exp(-325/temp) * O2"
+
+CH3CO3_HO2__CH3CO2H <- "KAPHO2 * 0.15"
+CH3CO3_HO2__CH3CO3H <- "KAPHO2 * 0.41"
+CH3CO3_HO2__CH3O2 <- "KAPHO2 * 0.44"
+CH3CO3_NO__CH3O2_NO2 <- "7.5E-12 * exp(290/temp)"
+CH3CO3_NO2__PAN <- "KFPAN"
+CH3CO3_NO3__CH3O2_NO2 <- "4.0E-12"
+CH3CO3__CH3CO2H <- "2 * (K298CH3O2 * 2.9E-12 * exp(500/temp))@0.5 * RO2 * 0.3"
+CH3CO3__CH3O2 <- "2 * (K298CH3O2 * 2.9E-12 * exp(500/temp))@0.5 * RO2 * 0.7"
+
+CH3CO3H_OH__CH3CO3 <- "3.70E-12"
+CH3CO3H__CH3O2_OH <- "J41"
+
+CH3O2_HO2__CH3OOH <- "3.8E-13 * exp(780/temp) * (1 - 1/(1 + 498 * exp(-1160/temp)))"
+CH3O2_HO2__HCHO <- "3.8E-13 * exp(780/temp) * (1/(1 + 498 * exp(-1160/temp)))"
+CH3O2_NO__CH3NO3 <- "2.3E-12 * exp(360/temp) * 0.001"
+CH3O2_NO__CH3O_NO2 <- "2.3E-12 * exp(360/temp) * 0.999"
+CH3O2_NO2__CH3O2NO2 <- "KMT13"
+CH3O2_NO3__CH3O_NO2 <- "1.2E-12"
+CH3O2__CH3O <- "2 * KCH3O2 * RO2 * 7.18 * exp(-885/temp)"
+CH3O2__CH3OH <- "2 * KCH3O2 * RO2 * 0.5 * (1 - 7.18 * exp(-885/temp))"
+CH3O2__HCHO <- "2 * KCH3O2 * RO2 * 0.5 * (1 - 7.18 * exp(-885/temp))"
+
+PAN_OH__HCHO_CO_NO2 <- "3E-14"
+PAN__CH3CO3_NO2 <- "KBPAN"
+
+HCOCH2O2_HO2__HCOCH2OOH <- "KRO2HO2 * 0.387"
+HCOCH2O2_NO__HCOCH2O_NO2 <- "KRO2NO"
+HCOCH2O2_NO3__HCOCH2O_NO2 <- "KRO2NO3" 
+HCOCH2O2__GLYOX <- "2.00E-12 * RO2 * 0.2"
+HCOCH2O2__HCOCH2O <- "2.00E-12 * RO2 * 0.6"
+HCOCH2O2__HOCH2CHO <- "2.00E-12 * RO2 * 0.2"
+
+HCOCH2OOH_OH__GLYOX_OH <- "2.91E-11"
+HCOCH2OOH_OH__HCOCH2O2 <- "1.90E-12 * exp(190/temp)"
+HCOCH2OOH__HCOCH2O_OH <- "J41"
+HCOCH2OOH__HCHO_HO2_CO_OH <- "J15"
+
+GLYOX_NO3__CO_CO_HO2_HNO3 <- "KNO3AL * 0.6"
+GLYOX_NO3__HCOCO3_HNO3 <- "KNO3AL * 0.4"
+GLYOX_OH__CO_CO_HO2 <- "3.1E-12 * exp(340/temp) * 0.6"
+GLYOX_OH__HCOCO3 <- "3.1E-12 * exp(340/temp) * 0.4"
+GLYOX__CO_CO_H2 <- "J31"
+GLYOX__HCHO_CO <- "J32"
+GLYOX__CO_CO_HO2_HO2 <- "J33"
+
+HCOCH2O__HCHO_CO_HO2 <- "KDEC"
+
+HOCH2CHO_NO3__HOCH2CO3_HNO3 <- "KNO3AL"
+HOCH2CHO_OH__GLYOX_HO2 <- "1.0E-11*0.2"
+HOCH2CHO_OH__HOCH2CO3 <- "1.0E-11*0.8"
+HOCH2CHO__HCHO_HO2_HO2_CO <- "J15"
+
+HOCH2CO3_HO2__HCHO_HO2_OH <- "KAPHO2 * 0.44"
+HOCH2CO3_HO2__HOCH2CO2H_O3 <- "KAPHO2 * 0.15"
+HOCH2CO3_HO2__HOCH2CO3H <- "KAPHO2 * 0.41"
+HOCH2CO3_NO__HCHO_NO2_HO2 <- "KAPNO"
+HOCH2CO3_NO2__PHAN <- "KFPAN"
+HOCH2CO3_NO3__HCHO_NO2_HO2 <- "KRO2NO3 * 1.74"
+HOCH2CO3__HCHO_HO2 <- "1.00E-11 * RO2 * 0.7"
+HOCH2CO3__HOCH2CO2H <- "1.00E-11 * RO2 * 0.3"
+
+HOCH2CO2H_OH__HCHO_HO2 <- "2.73E-12"
+
+HOCH2CO3H_OH__HOCH2CO3 <- "6.19E-12"
+HOCH2CO3H__HCHO_HO2_OH <- "J41"
+
+PHAN_OH__HCHO_CO_NO2 <- "1.12E-12"
+PHAN__HOCH2CO3_NO2 <- "KBPAN"
+
+HOCH2CH2O2_HO2__HYETHO2H <- "1.53E-13 * exp(1300/temp)"
+HOCH2CH2O2_NO__ETHOHNO3 <- "KRO2NO * 0.005"
+HOCH2CH2O2_NO__HOCH2CH2O_NO2 <- "KRO2NO * 0.995"
+HOCH2CH2O2_NO3__HOCH2CH2O_NO2 <- "KRO2NO3"
+HOCH2CH2O2__ETHGLY <- "2 * (KCH3O2 * 7.8E-14 * exp(1000/temp))@0.5 * RO2 * 0.2"
+HOCH2CH2O2__HOCH2CH2O <- "2 * (KCH3O2 * 7.8E-14 * exp(1000/temp))@0.5 * RO2 * 0.6"
+HOCH2CH2O2__HOCH2CHO <- "2 * (KCH3O2 * 7.8E-14 * exp(1000/temp))@0.5 * RO2 * 0.2"
+
+HYETHO2H_OH__HOCH2CH2O2 <- "1.90E-12 * exp(190/temp)"
+HYETHO2H_OH__HOCH2CHO_OH <- "1.38E-11"
+HYETHO2H__HOCH2CH2O_OH <- "J41"
+
+HOCH2CH2O__HCHO_HCHO_HO2 <- "9.50E13 * exp(-5988/temp)"
+HOCH2CH2O__HOCH2CHO_HO2 <- "KROPRIM * O2"
+
+ETHOHNO3_OH__HOCH2CHO_NO2 <- "8.40E-13"
+
+HO1C3O2_HO2__HO1C3OOH <- "KRO2HO2 * 0.520"
+HO1C3O2_NO__HO1C3NO3 <- "KRO2NO * 0.019"
+HO1C3O2_NO__HO1C3O_NO2 <- "KRO2NO * 0.981"
+HO1C3O2_NO3__HO1C3O_NO2 <- "KRO2NO3"
+HO1C3O2__HO1C3O <- "6.00E-13 * RO2 * 0.6"
+HO1C3O2__HOC2H4CHO <- "6.00E-13 * RO2 * 0.2"
+HO1C3O2__HOC3H6OH <- "6.00E-13 * RO2 * 0.2"
+
+HO1C3OOH_OH__HO1C3O2 <- "1.90E-12 * exp(190/temp)"
+HO1C3OOH_OH__HOC2H4CHO <- "1.52E-11"
+HO1C3OOH__HO1C3O_OH <- "J41"
+
+HO1C3O__HOC2H4CHO_HO2 <- "KROPRIM * O2"
+
+HOC2H4CHO__HOCH2CH2O2_HO2_CO <- "J15"
+HOC2H4CHO_NO3__HOC2H4CO3_HNO3 <- "KNO3AL * 2.4"
+HOC2H4CHO_OH__HOC2H4CO3 <- "3.06E-11"
+
+HOC2H4CO3_HO2__HOC2H4CO2H_O3 <- "KAPHO2 * 0.15"
+HOC2H4CO3_HO2__HOC2H4CO3H <- "KAPHO2 * 0.41"
+HOC2H4CO3_HO2__HOCH2CH2O2_OH <- "KAPHO2 * 0.44"
+HOC2H4CO3_NO__HOCH2CH2O2_NO2 <- "KAPNO"
+HOC2H4CO3_NO2__C3PAN1 <- "KFPAN"
+HOC2H4CO3_NO3__HOCH2CH2O2_NO2 <- "KRO2NO3 * 1.74"
+HOC2H4CO3__HOC2H4CO2H <- "1.00E-11 * RO2 * 0.3"
+HOC2H4CO3__HOCH2CH2O2 <- "1.00E-11 * RO2 * 0.7"
+
+HOC2H4CO2H_OH__HOCH2CH2O2 <- "1.39E-11"
+
+HOC2H4CO3H_OH__HOC2H4CO3 <- "1.73E-11"
+HOC2H4CO3H__HOCH2CH2O2 <- "J41"
+
+C3PAN1_OH__HOCH2CHO_CO_NO2 <- "4.51E-12"
+C3PAN1__HOC2H4CO3_NO2 <- "KBPAN"
+
+HO1C3NO3_OH__HOC2H4CHO_NO2 <- "4.44E-12"
+HO1C3NO3__HO1C3O_NO2 <- "J53"
+
+HOC3H6OH_OH__HOC2H4CHO_HO2 <- "9.73E-12"
+
+HYPROPO2_HO2__HYPROPO2H <- "KRO2HO2 * 0.52"
+HYPROPO2_NO3__HYPROPO_NO2 <- "KRO2NO3"
+HYPROPO2__ACETOL <- "8.80E-13 * RO2 * 0.2"
+HYPROPO2__HYPROPO <- "8.80E-13 * RO2 * 0.6"
+HYPROPO2__PROPGLY <- "8.80E-13 * RO2 * 0.2"
+HYPROPO2_NO__HYPROPO_NO2 <- "KRO2NO * 0.977"
+HYPROPO2_NO__PROPOLNO3 <- "KRO2NO * 0.023"
+
+HYPROPO2H_OH__ACETOL_OH <- "2.44E-11"
+HYPROPO2H_OH__HYPROPO2 <- "1.90E-12 * exp(190/temp)"
+HYPROPO2H__HYPROPO_OH <- "J41"
+
+ACETOL_OH__MGLYOX_HO2 <- "1.6E-12 * exp(305/temp)"
+ACETOL__CH3CO3_HCHO_HO2 <- "J22"
+
+MGLYOX__CH3CO3_CO_HO2 <- "J34"
+MGLYOX_NO3__CH3CO3_CO_HNO3 <- "KNO3AL * 2.4"
+MGLYOX_OH__CH3CO3_CO <- "1.9E-12 * exp(575/temp)"
+
+HYPROPO__CH3CHO_HCHO_HO2 <- "2.00E14 * exp(-6410/temp)"
+
+PROPOLNO3_OH__ACETOL_NO2 <- "9.16E-13"
+
+IPROPOLO2_HO2__IPROPOLO2H <- "KRO2HO2 * 0.520"
+IPROPOLO2_NO__IPROPOLO_NO2 <- "KRO2NO * 0.991"
+IPROPOLO2_NO__PROLNO3 <- "KRO2NO * 0.009"
+IPROPOLO2_NO3__IPROPOLO_NO2 <- "KRO2NO3"
+IPROPOLO2__CH3CHOHCHO <- "2.00E-12 * RO2 * 0.2"
+IPROPOLO2__IPROPOLO <- "2.00E-12 * RO2 * 0.6"
+IPROPOLO2__PROPGLY <- "2.00E-12 * RO2 * 0.2"
+
+IPROPOLO2H_OH__CH3CHOHCHO_OH <- "1.83E-11"
+IPROPOLO2H_OH__IPROPOLO2 <- "1.90E-12 * exp(190/temp)"
+IPROPOLO2H__IPROPOLO <- "J41"
+
+CH3CHOHCHO_NO3__CH3CHOHCO3_HNO3 <- "KNO3AL * 2.4"
+CH3CHOHCHO_OH__CH3CHOHCO3 <- "1.7E-11"
+CH3CHOHCHO__CH3CHO_HO2_HO2_CO <- "J17"
+
+CH3CHOHCO3_HO2__CH3CHO_HO2_OH <- "KAPHO2 * 0.44"
+CH3CHOHCO3_HO2__IPROPOLPER <- "KAPHO2 * 0.56"
+CH3CHOHCO3_NO__CH3CHO_HO2_NO2 <- "KAPNO"
+CH3CHOHCO3_NO2__IPROPOLPAN <- "KFPAN"
+CH3CHOHCO3_NO3__CH3CHO_HO2_NO2 <- "KRO2NO3 * 1.74"
+CH3CHOHCO3__CH3CHO_HO2 <- "1.00E-11 * RO2"
+
+IPROPOLPER_OH__CH3CHOHCO3 <- "9.34E-12"
+IPROPOLPER__CH3CHO_HO2_OH <- "J41"
+
+IPROPOLPAN_OH__CH3CHO_CO_NO2 <- "2.34E-12"
+IPROPOLPAN__CH3CHOHCO3_NO2 <- "KBPAN"
+
+IPROPOLO__CH3CHO_HCHO_HO2 <- "2.00E14 * exp(-5505/temp)"
+
+PROLNO3_OH__CH3CHOHCHO_NO2 <- "1.71E-12"
+
+NBUTOLBO2_HO2__NBUTOLBOOH <- "KRO2HO2 * 0.625"
+NBUTOLBO2_NO__NBUTOLBNO3 <- "KRO2NO * 0.083"
+NBUTOLBO2_NO__NBUTOLBO_NO2 <- "KRO2NO * 0.917"
+NBUTOLBO2_NO3__NBUTOLBO_NO2 <- "KRO2NO3"
+NBUTOLBO2__HO2C4OH <- "8.80E-13 * RO2 * 0.2"
+NBUTOLBO2__MEKAOH <- "8.80E-13 * RO2 * 0.2"
+NBUTOLBO2__NBUTOLBO <- "8.80E-13 * RO2 * 0.6"
+
+NBUTOLBOOH_OH__MEKAOH_OH <- "2.58E-11"
+NBUTOLBOOH_OH__NBUTOLBO2 <- "1.90E-12*exp(190/temp)"
+NBUTOLBOOH__NBUTOLBO_OH <- "J41"
+
+NBUTOLBNO3_OH__MEKAOH_NO2 <- "4.51E-12"
+NBUTOLBNO3__NBUTOLBO_NO2 <- "J54"
+
+MEKAOH_OH__CO2C3CHO_HO2 <- "1.35E-11"
+MEKAOH__HOCH2CH2O2_CH3CO3 <- "J22"
+
+CO2C3CHO_NO3__CO2C3CO3_HNO3 <- "KNO3AL * 4.0"
+CO2C3CHO_OH__CO2C3CO3 <- "7.15E-11"
+CO2C3CHO__CH3COCH2O2_HCHO <- "J15"
+
+CO2C3CO3_HO2__CH3COCH2O2 <- "KAPHO2 * 0.44"
+CO2C3CO3_HO2__CO2C3CO3H <- "KAPHO2 * 0.56"
+CO2C3CO3_NO__CH3COCH2O2_NO2 <- "KAPNO"
+CO2C3CO3_NO2__CO2C3PAN <- "KFPAN"
+CO2C3CO3_NO3__CH3COCH2O2_NO2 <- "KRO2NO3*1.74"
+CO2C3CO3__CH3COCH2O2 <- "1.00E-11 * RO2"
+
+CH3COCH2O2_HO2__CH3COCH2O_OH <- "1.36E-13 * exp(1250/temp) * 0.15"
+CH3COCH2O2_HO2__HYPERACET <-  "1.36E-13 * exp(1250/temp) * 0.85"
+CH3COCH2O2_NO__CH3COCH2O_NO2 <- "KRO2NO"
+CH3COCH2O2_NO3__CH3COCH2O_NO2 <- "KRO2NO3"
+CH3COCH2O2__ACETOL <- "2 * (K298CH3O2 * 8.0E-12)@0.5 * RO2 * 0.2"
+CH3COCH2O2__CH3COCH2O <- "2 * (K298CH3O2 * 8.0E-12)@0.5 * RO2 * 0.6" 
+CH3COCH2O2__MGLYOX <- "2 * (K298CH3O2 * 8.0E-12)@0.5 * RO2 * 0.2"
+
+CH3COCH2O__CH3CO3_HCHO <- "KDEC"
+
+HYPERACET_OH__CH3COCH2O2 <- "1.90E-12 * exp(190/temp)"
+HYPERACET_OH__MGLYOX_OH <- "8.39E-12"
+HYPERACET__CH3CO3_HCHO_OH <- "J22"
+HYPERACET__CH3COCH2O_OH <- "J41"
+
+CO2C3CO3H_OH__CO2C3CO3 <- "4.18E-12"
+CO2C3CO3H__CH3COCH2O2_OH <- "J41"
+CO2C3CO3H__CH3COCH2O2_OH <- "J22"
+
+CO2C3PAN_OH__MGLYOX_CO_NO2 <- "5.93E-13"
+CO2C3PAN__CO2C3CO3_NO2 <- "KBPAN"
+
+NBUTOLBO__CH3CHO_HOCH2CH2O2 <- "2.70E14 * exp(-7398/temp)"
+NBUTOLBO__MEKAOH_HO2 <- "KROSEC * O2"
+
+HO2C4OH_OH__MEKAOH_HO2 <- "1.42E-11"
+
+BUT2OLO2_HO2__BUT2OLOOH <- "KRO2HO2 * 0.625"
+BUT2OLO2_NO__BUT2OLAO_NO2 <- "KRO2NO * 0.959"
+BUT2OLO2_NO__BUT2OLNO3 <- "KRO2NO * 0.041"
+BUT2OLO2_NO3__BUT2OLAO_NO2 <- "KRO2NO3"
+BUT2OLO2__BUT2OLAO <- "8.80E-13 * RO2 * 0.6"
+BUT2OLO2__BUT2OLO <- "8.80E-13 * RO2 * 0.2"
+BUT2OLO2__BUT2OLOH <- "8.80E-13 * RO2 * 0.2"
+
+BUT2OLOOH_OH__BUT2OLO_OH <- "2.89E-11"
+BUT2OLOOH_OH__BUT2OLO2 <- "1.90E-12 * exp(190/temp)"
+BUT2OLOOH__BUT2OLAO_OH <- "J41"
+
+BUT2OLO_OH__BIACET_HO2 <- "5.86E-12"
+BUT2OLO__CH3CO3_CH3CHO <- "J22"
+
+BIACET__CH3CO3_CH3CO3 <- "J35"
+BIACET_OH__BIACETO2 <- "1.40E-18 * temp@2 * exp(194/temp)"
+
+BIACETO2_HO2__BIACETOOH <- "KRO2HO2 * 0.625"
+BIACETO2_NO__BIACETO_NO2 <- "KRO2NO"
+BIACETO2_NO3__BIACETO_NO2 <- "KRO2NO3"
+BIACETO2__BIACETO <- "2.00E-12 * RO2 * 0.6"
+BIACETO2__BIACETOH <- "2.00E-12 * RO2 * 0.2"
+BIACETO2__CO23C3CHO <- "2.00E-12 * RO2 * 0.2"
+
+BIACETOOH__BIACETO_OH <- "J41"
+BIACETOOH__BIACETO_OH <- "J35"
+BIACETOOH_OH__BIACETO2 <- "1.90E-12 * exp(190/temp)"
+BIACETOOH_OH__CO23C3CHO_OH <- "5.99E-12"
+
+BIACETO__CH3CO3_HCHO_CO <- "KDEC"
+
+CO23C3CHO__CH3CO3_CO_CO_HO2 <- "J34"
+CO23C3CHO__CH3CO3_HCOCO3 <- "J35"
+CO23C3CHO_NO3__CH3CO3_CO_CO_HNO3 <- "KNO3AL * 4.0"
+CO23C3CHO_OH__CH3CO3_CO_CO <- "1.23E-11"
+
+BIACETOH__CH3CO3_HOCH2CO3 <- "J35"
+BIACETOH_OH__CO23C3CHO_HO2 <- "2.69E-12"
+
+BUT2OLAO__CH3CHO_CH3CHO_HO2 <- "2.00E14 * exp(-4714/temp)"
+
+BUT2OLNO3_OH__BUT2OLO_NO2 <- "1.79E-12"
+
+BUT2OLOH_OH__BUT2OLO_HO2 <- "1.73E-11"
+
+IBUTOLBO2_HO2__IBUTOLBO2H <- "KRO2HO2 * 0.625"
+IBUTOLBO2_NO__IBUTOLBNO3 <- "KRO2NO * 0.012"
+IBUTOLBO2_NO__IBUTOLBO_NO2 <- "KRO2NO * 0.988"
+IBUTOLBO2_NO3__IBUTOLBO_NO2 <- "KRO2NO3"
+IBUTOLBO2__IBUTOLBO <- "9.20E-14 * RO2 * 0.7"
+IBUTOLBO2__IBUTOLOHB <- "9.20E-14 * RO2 * 0.3"
+
+IBUTOLBO2H_OH__IBUTOLBO2 <- "8.10E-12"
+IBUTOLBO2H__IBUTOLBO_OH <- "J41"
+
+IBUTOLBO__CH3COCH3_HCHO_HO2 <- "2.00E14 * exp(-5902/temp)"
+
+IBUTOLBNO3_OH__CH3COCH3_HCHO_NO2 <- "8.48E-13"
+
+IBUTOLOHB_OH__IBUTALOH_HO2 <- "4.64E-12"
+
+IBUTALOH_OH__IPRHOCO3 <- "1.4E-11"
+IBUTALOH__CH3COCH3_HO2_HO2_CO <- "J17"
+
+IPRHOCO3_HO2__CH3COCH3_HO2_OH <- "KAPHO2 * 0.44"
+IPRHOCO3_HO2__IPRHOCO2H_O3 <- "KAPHO2 * 0.15"
+IPRHOCO3_HO2__IPRHOCO3H <- "KAPHO2 * 0.41"
+IPRHOCO3_NO__CH3COCH3_HO2_NO2 <- "KAPNO"
+IPRHOCO3_NO2__C4PAN5 <- "KFPAN"
+IPRHOCO3_NO3__CH3COCH3_HO2_NO2 <- "KRO2NO3 * 1.74"
+IPRHOCO3__CH3COCH3_HO2 <- "1.00E-11 * RO2 * 0.7"
+IPRHOCO3__IPRHOCO2H <- "1.00E-11 * RO2 * 0.3"
+
+IPRHOCO2H_OH__CH3COCH3_HO2 <- "1.72E-12"
+
+IPRHOCO3H__CH3COCH3_HO2_OH <- "J41"
+IPRHOCO3H_OH__IPRHOCO3 <- "4.80E-12"
+
+C4PAN5__IPRHOCO3_NO2 <- "KBPAN"
+C4PAN5_OH__CH3COCH3_CO_NO2 <- "4.75E-13"
+
+IBUTOLCO2_HO2__IBUTOLCO2H <- "KRO2HO2 * 0.625"
+IBUTOLCO2_NO__IBUTOLCNO3 <- "KRO2NO * 0.041"
+IBUTOLCO2_NO__IBUTOLCO_NO2 <- "KRO2NO * 0.959"
+IBUTOLCO2_NO3__IBUTOLCO_NO2 <- "KRO2NO3"
+IBUTOLCO2__HOIPRCHO <- "1.30E-12 * RO2 * 0.2"
+IBUTOLCO2__IBUTOLCO <- "1.30E-12 * RO2 * 0.6"
+IBUTOLCO2__IBUTOLOHC <- "1.30E-12 * RO2 * 0.2"
+
+IBUTOLCO2H_OH__HOIPRCHO_OH <- "1.69E-11"
+IBUTOLCO2H_OH__IBUTOLCO2 <- "1.90E-12 * exp(190/temp)"
+IBUTOLCO2__IBUTOLCO_OH <- "J41"
+
+HOIPRCHO__HYPROPO2_CO_HO2 <- "J17"
+HOIPRCHO_NO3__HOIPRCO3_HNO3 <- "KNO3AL * 4.0"
+HOIPRCHO_OH__HOIPRCO3 <- "3.60E-11"
+
+HOIPRCO3_HO2__HOIPRCO2H_O3 <- "KAPHO2 * 0.15"
+HOIPRCO3_HO2__HOIPRCO3H <- "KAPHO2 * 0.41"
+HOIPRCO3_HO2__HYPROPO2_OH <- "KAPHO2 * 0.44"
+HOIPRCO3_NO__HYPROPO2_NO2 <- "KAPNO"
+HOIPRCO3_NO2__C4PAN4 <- "KFPAN"
+HOIPRCO3_NO3__HYPROPO2_NO2 <- "KRO2NO3 * 1.74"
+HOIPRCO3__HOIPRCO2H <- "1.00E-11 * RO2 * 0.3"
+HOIPRCO3__HYPROPO2 <- "1.00E-11 * RO2 * 0.7"
+
+HOIPRCO2H_OH__HYPROPO2 <- "1.46E-11"
+
+HOIPRCO3H_OH__HOIPRCO3 <- "1.82E-11"
+HOIPRCO3H__HYPROPO2 <- "J41"
+
+C4PAN4_OH__ACETOL_CO_NO2 <- "1.45E-11"
+C4PAN4__HOIPRCO3_NO2 <- "KBPAN"
+
+IBUTOLCO__HOIPRCHO_HO2 <- "KROPRIM * O2"
+
+IBUTOLCNO3_OH__HOIPRCHO_NO2 <- "4.85E-12"
+IBUTOLCNO3__IBUTOLCO_NO2 <- "J53"
+
+IBUTOLOHC_OH__HOIPRCHO <- "1.14E-11"
+
+MEKAO2_HO2__MEKAOOH <- "KRO2HO2 * 0.625"
+MEKAO2_NO__MEKANO3 <- "KRO2NO * 0.033"
+MEKAO2_NO__MEKAO_NO2 <- "KRO2NO * 0.967"
+MEKAO2_NO3__MEKAO_NO2 <- "KRO2NO3"
+MEKAO2__CO2C3CHO <- "2.00D-12 * RO2 * 0.2"
+MEKAO2__MEKAO <- "2.00D-12 * RO2 * 0.6"
+MEKAO2__MEKAOH <- "2.00D-12 * RO2 * 0.2"
+
+MEKAOOH_OH__CO2C3CHO_OH <- "4.88E-11"
+MEKAOOH_OH__MEKAO2 <- "1.90E-12 * exp(190/temp)"
+MEKAOOH__MEKAO_OH <- "J41"
+MEKAOOH__MEKAO_OH <- "J22"
+
+MEKAO__CO2C3CHO_HO2 <- "KROPRIM * O2"
+MEKAO__HO1CO3C4O2 <- "1.30E11 * exp(-4127/temp)"
+
+HO1CO3C4O2_HO2__HOCO3C4OOH <- "KRO2HO2 * 0.625"
+HO1CO3C4O2_NO__HO1CO3C4O_NO2 <- "KRO2NO"
+HO1CO3C4O2_NO3__HO1CO3C4O_NO2 <- "KRO2NO3"
+HO1CO3C4O2__HO14CO2C4 <- "2.00E-12 * RO2 * 0.2"
+HO1CO3C4O2__HO1CO3C4O <- "2.00E-12 * RO2 * 0.6"
+HO1CO3C4O2__HO1CO3CHO <- "2.00E-12 * RO2 * 0.2"
+
+HOCO3C4OOH_OH__HO1CO3C4O2 <- "1.90E-12 * exp(190/temp)"
+HOCO3C4OOH_OH__HO1CO3CHO_OH <- "2.16E-11"
+HOCO3C4OOH__HO1CO3C4O_OH <- "J41"
+HOCO3C4OOH__HO1CO3C4O_OH <- "J22"
+
+HO1CO3CHO_NO3__HOC2H4CO3_CO_HNO3 <- "KNO3AL * 4.0"
+HO1CO3CHO_OH__HOC2H4CO3_CO <- "2.56E-11"
+HO1CO3CHO__HOC2H4CO3_HO2_CO <- "J34"
+
+HO1CO3C4O__HOC2H4CO3_HCHO <- "KDEC"
+
+HO14CO2C4_OH__HO1CO3CHO_HO2 <- "1.57E-11"
+HO14CO2C4__HOCH2CO3_HOCH2CH2O2 <- "J22"
+
+MEKANO3_OH__CO2C3CHO_NO2 <- "9.64E-13"
+MEKANO3__MEKAO_NO2 <- "J53"
+MEKANO3__MEKAO_NO2 <- "J22"
+
+MEKBO2_HO2__MEKBOOH <- "KRO2HO2 * 0.625"
+MEKBO2_NO__MEKBO_NO2 <- "KRO2NO"
+MEKBO2_NO3__MEKBO_NO2 <- "KRO2NO3"
+MEKBO2__BIACET <- "8.80E-13 * RO2 * 0.2"
+MEKBO2__BUT2OLO <- "8.80E-13 * RO2 * 0.2" 
+MEKBO2__MEKBO <- "8.80E-13 * RO2 * 0.6"
+
+MEKBOOH_OH__BIACET_OH <- "1.88E-11"
+MEKBOOH_OH__MEKBO2 <- "1.90E-12 * exp(190/temp)"
+MEKBOOH__CH3CO3_CH3CHO_OH <- "J22"
+MEKBOOH__MEKBO_OH <- "J41"
+
+MEKBO__CH3CHO_CH3CO3 <- "KDEC"
+
+MEKCO2_HO2__MEKCOOH <- "KRO2HO2 * 0.625"
+MEKCO2_NO__MEKCO_NO2 <- "KRO2NO"
+MEKCO2_NO3__MEKCO_NO2 <- "KRO2NO3"
+MEKCO2__EGLYOX <- "2.00E-12 * RO2 * 0.2"
+MEKCO2__MEKCO <- "2.00E-12 * RO2 * 0.6"
+MEKCO2__MEKCOH <- "2.00E-12 * RO2 * 0.2"
+
+MEKCOOH_OH__EGLYOX_OH <- "9.55E-12"
+MEKCOOH_OH__MEKCO2 <- "1.90E-12 * exp(190/temp)"
+MEKCOOH__C2H5CO3_HCHO_OH <- "J22"
+MEKCOOH__MEKCO_OH <- "J41"
+
+EGLYOX__C2H5CO3_CO_HO2 <- "J34"
+EGLYOX_NO3__C2H5CO3_CO_HNO3 <- "KNO3AL * 4.0"
+EGLYOX_OH__C2H5CO3_CO <- "1.39E-11"
+
+C2H5CO3_HO2__C2H5O2_OH <- "KAPHO2 * 0.44"
+C2H5CO3_HO2__PERPROACID <- "KAPHO2 * 0.41"
+C2H5CO3_HO2__PROPACID <- "KAPHO2 * 0.15"
+C2H5CO3_NO__C2H5O2_NO2 <- "6.7E-12 * exp(340/temp)"
+C2H5CO3_NO2__PPN <- "KFPAN"
+C2H5CO3_NO3__C2H5O2_NO2 <- "KRO2NO3 * 1.74"
+C2H5CO3__C2H5O2 <- "1.00E-11 * RO2 * 0.7"
+C2H5CO3__PROPACID <- "1.00E-11 * RO2 * 0.3" 
+
+C2H5O2_HO2__C2H5OOH <- "4.3E-13 * exp(870/temp)"
+C2H5O2_NO__C2H5NO3 <- "2.55E-12 * exp(380/temp) * 0.009"
+C2H5O2_NO__C2H5O_NO2 <- "2.55E-12 * exp(380/temp) * 0.991"
+C2H5O2_NO3__C2H5O_NO2 <- "KRO2NO3"
+C2H5O2__C2H5O <- "2 * (KCH3O2 * 6.4E-14 * (temp/300)@0 * exp(0/temp))@0.5 * RO2 * 0.6"
+C2H5O2__C2H5OH <- "2 * (KCH3O2 * 6.4E-14 * (temp/300)@0 * exp(0/temp))@0.5 * RO2 * 0.2"
+C2H5O2__CH3CHO <- "2 * (KCH3O2 * 6.4E-14 * (temp/300)@0 * exp(0/temp))@0.5 * RO2 * 0.2"
+
+C2H5OOH__C2H5O_OH <- "J41"
+C2H5OOH_OH__C2H5O2 <- "1.90E-12 * exp(190/temp)"
+C2H5OOH_OH__CH3CHO_OH <- "8.01E-12"
+
+C2H5NO3__C2H5O_NO2 <- "J52"
+C2H5NO3_OH__CH3CHO_NO2 <- "6.7E-13 * exp(-395/temp)"
+
+PERPROACID_OH__C2H5CO3 <- "4.42E-12"
+PERPROACID__C2H5O2_OH <- "J41"
+
+PPN_OH__CH3CHO_CO_NO2 <- "1.27E-12"
+PPN__C2H5CO3_NO2 <- "1.7E-3*exp(-11280/temp)"
+
+MEKCO__C2H5CO3_HCHO <- "KDEC"
+
+MEKCOH_OH__EGLYOX_HO2 <- "3.44E-12"
+MEKCOH__C2H5CO3_HCHO_HO2 <- "J22"
+
+IPRCO3_HO2__IBUTACID_O3 <- "KAPHO2 * 0.15"
+IPRCO3_HO2__IC3H7O2_OH <- "KAPHO2 * 0.44"
+IPRCO3_HO2__PERIBUACID <- "KAPHO2 * 0.41"
+IPRCO3_NO__IC3H7O2_NO2 <- "KAPNO"
+IPRCO3_NO2__PIPN <- "KFPAN"
+IPRCO3_NO3__IC3H7O2_NO2 <- "KRO2NO3 * 1.74"
+IPRCO3__IBUTACID <- "1.00E-11 * RO2 * 0.3"
+IPRCO3__IC3H7O2 <- "1.00E-11 * RO2 * 0.7"
+
+IBUTACID_OH__IC3H7O2 <- "2.00E-12"
+
+IC3H7O2_HO2__IC3H7OOH <- "KRO2HO2 * 0.520"
+IC3H7O2_NO__IC3H7NO3 <- "2.7E-12 * exp(360/temp) * 0.042"
+IC3H7O2_NO__IC3H7O_NO2 <- "2.7E-12 * exp(360/temp) * 0.958"
+IC3H7O2_NO3__IC3H7O_NO2 <- "KRO2NO3"
+IC3H7O2__CH3COCH3 <- "2 * (KCH3O2 * 1.6E-12 * exp(-2200/temp))@0.5 * RO2 * 0.2"
+IC3H7O2__IC3H7O <- "2 * (KCH3O2 * 1.6E-12 * exp(-2200/temp))@0.5 * RO2 * 0.6"
+IC3H7O2__IPROPOL <- "2 * (KCH3O2 * 1.6E-12 * exp(-2200/temp))@0.5 * RO2 * 0.2"
+
+IC3H7OOH__IC3H7O_OH <- "J41"
+IC3H7OOH_OH__CH3COCH3_OH <- "1.66E-11"
+IC3H7OOH_OH__IC3H7O2 <- "1.90E-12 * exp(190/temp)"
+
+IC3H7O__CH3COCH3_HO2 <- "1.5E-14 * exp(-230/temp) * O2"
+
+IC3H7NO3__IC3H7O_NO2 <- "J54"
+IC3H7NO3_OH__CH3COCH3_NO2 <- "6.2E-13 * exp(-230/temp)"
+
+PERIBUACID_OH__IPRCO3 <- "6.26E-12"
+PERIBUACID__IC3H7O2_OH <- "J41"
+
+PIPN_OH__CH3COCH3_CO_NO2 <- "2.66E-12"
+PIPN__IPRCO3_NO2 <- "KBPAN"
+
+IBUTALBO2_HO2__IBUTALBO2H <- "KRO2HO2 * 0.625"
+IBUTALBO2_NO__IBUALANO3 <- "KRO2NO * 0.033"
+IBUTALBO2_NO__IBUTALBO_NO2 <- "KRO2NO * 0.967"
+IBUTALBO2_NO3__BUTALBO_NO2 <- "KRO2NO3"
+IBUTALBO2__HOIPRCHO <- "1.30E-12 * RO2 * 0.2"
+IBUTALBO2__IBUTALBO <- "1.30E-12 * RO2 * 0.6"
+IBUTALBO2__IBUTDIAL <- "1.30E-12 * RO2 * 0.2"
+
+IBUTALBO2H_OH__IBUTALBO2 <- "1.90E-12 * exp(190/temp)"
+IBUTALBO2H_OH__IBUTDIAL_OH <- "7.11E-11"
+IBUTALBO2H__IBUTALBO_OH <- "J41"
+IBUTALBO2H__IBUTALBO_OH <- "J17"
+
+IBUTDIAL_NO3__IBUDIALCO3_HNO3 <- "2 * KNO3AL * 4.0"
+IBUTDIAL_OH__IBUDIALCO3 <- "1.44E-10"
+IBUTDIAL__PROPALO2_CO_HO2 <- "J17 * 2.0"
+
+IBUDIALCO3_HO2__PROPALO2_OH <- "KAPHO2 * 0.44"
+IBUDIALCO3_HO2__PRPAL2CO2H_O3 <- "KAPHO2 * 0.15"
+IBUDIALCO3_HO2__PRPAL2CO3H <- "KAPHO2 * 0.41"
+IBUDIALCO3_NO__PROPALO2_NO2 <- "KAPNO"
+IBUDIALCO3_NO2__IBUDIALPAN <- "KFPAN"
+IBUDIALCO3_NO3__PROPALO2_NO2 <- "KRO2NO3 * 1.74"
+IBUDIALCO3__PROPALO2 <- "1.00E-11 * RO2 * 0.7"
+IBUDIALCO3__PRPAL2CO2H <- "1.00E-11 * RO2 * 0.3"
+
+PROPALO2_HO2__PROPALOOH <- "KRO2HO2 * 0.520"
+PROPALO2_NO__PROPALO_NO2 <- "KRO2NO"
+PROPALO2_NO3__PROPALO_NO2 <- "KRO2NO3"
+PROPALO2__CH3CHOHCHO <- "2.00E-12 * RO2 * 0.2"
+PROPALO2__MGLYOX <- "2.00E-12 * RO2 * 0.2"
+PROPALO2__PROPALO <- "2.00E-12 * RO2 * 0.6"
+
+PROPALOOH_OH__MGLYOX_OH <- "4.31E-11"
+PROPALOOH__CH3CHO_HO2_CO_OH <- "J15"
+PROPALOOH__PROPALO_OH <- "J41"
+
+PROPALO__CH3CHO_HO2_CO <- "KDEC"
+
+PRPAL2CO2H_OH__PROPALO2 <- "7.29E-11"
+PRPAL2CO2H__PROPALO2_HO2 <- "J17"
+
+PRPAL2CO3H_OH__IBUDIALCO3 <- "7.65E-11"
+PRPAL2CO3H__PROPALO2_OH <- "J41"
+PRPAL2CO3H__PROPALO2_OH <- "J17"
+
+IBUDIALPAN_OH__MGLYOX_CO_NO2 <- "7.29E-11"
+IBUDIALPAN__IBUDIALCO3_NO2 <- "KBPAN"
+
+IBUTALBO__IBUTDIAL_HO2 <- "KROPRIM * O2"
+
+IBUALANO3_OH__IBUTDIAL_NO2 <- "2.25E-11"
+IBUALANO3__IBUTALBO_NO2 <- "J53"
+IBUALANO3__IBUTALBO_NO2 <- "J17"
+
+IBUTALCO2_HO2__IBUTALO2H <- "KRO2HO2 * 0.625"
+IBUTALCO2_NO__M2PROPAL2O_NO2 <- "KRO2NO"
+IBUTALCO2_NO3__M2PROPAL2O_NO2 <- "KRO2NO3"
+IBUTALCO2__IBUTALOH <- "9.20E-14 * RO2 * 0.3"
+IBUTALCO2__M2PROPAL2O <- "9.20E-14 * RO2 * 0.7"
+
+IBUTALO2H_OH__IBUTALCO2 <- "2.57E-11"
+IBUTALO2H__CH3COCH3_OH_HO2_CO <- "J17"
+IBUTALO2H__M2PROPAL2O_OH <- "J41"
+
+M2PROPAL2O__CH3COCH3_HO2_CO <- "KDEC"
+
+TBUTOLO2_HO2__TBUTOLOOH <- "5.60E-14 * exp(1650/temp)"
+TBUTOLO2_NO__TBUTOLNO3 <- "KRO2NO * 0.017"
+TBUTOLO2_NO__TBUTOLO_NO2 <- "KRO2NO * 0.983"
+TBUTOLO2_NO3__TBUTOLO_NO2 <- "KRO2NO3"
+TBUTOLO2__IBUTALOH <- "2.00E-13 * RO2 * 0.2"
+TBUTOLO2__IBUTOLOHB <- "2.00E-13 * RO2 * 0.2"
+TBUTOLO2__TBUTOLO <- "2.00E-13 * RO2 * 0.6"
+
+TBUTOLOOH_OH__IBUTALOH_OH <- "9.98E-12"
+TBUTOLOOH_OH__TBUTOLO2 <- "1.90E-12 * exp(190/temp)"
+TBUTOLOOH__TBUTOLO_OH <- "J41"
+
+TBUTOLO__CH3COCH3_HCHO_HO2 <- "2.00E14 * exp(-4909/temp)"
+
+TBUTOLNO3_OH__IBUTALOH_NO2 <- "5.21E-13"
+
+TC4H9O__CH3COCH3_CH3O2 <- "6.00E14 * exp(-8153/temp)"
+
+HO3C5O2_HO2__HO3C5OOH <- "KRO2HO2 * 0.706"
+HO3C5O2_NO__HO3C5NO3 <- "KRO2NO * 0.052"
+HO3C5O2_NO__HO3C5O_NO2 <- "KRO2NO * 0.948"
+HO3C5O2_NO3__HO3C5O_NO2 <- "KRO2NO3"
+HO3C5O2__HO13C5 <- "1.30E-12 * RO2 * 0.2"
+HO3C5O2__HO3C4CHO <- "1.30E-12 * RO2 * 0.2"
+HO3C5O2__HO3C5O <- "1.30E-12 * RO2 * 0.6"
+
+HO3C5OOH__HO3C5O_OH <- "J41"
+HO3C5OOH_OH__HO3C4CHO_OH <- "2.28E-11"
+HO3C5OOH_OH__HO3C5O2 <- "1.90E-12 * exp(190/temp)"
+
+HO3C5O__HO13C5O2 <- "2.03E11 * exp(-3430/temp)"
+
+HO13C5O2_HO2__HO13C5OOH <- "KRO2HO2 * 0.706"
+HO13C5O2_NO__HO13C5NO3 <- "KRO2NO * 0.026"
+HO13C5O2_NO__HO13C5O_NO2 <- "KRO2NO * 0.974"
+HO13C5O2_NO3__HO13C5O_NO2 <- "KRO2NO3"
+HO13C5O2__HO134C5 <- "8.40E-13 * RO2 * 0.2"
+HO13C5O2__HO13C5O <- "8.40E-13 * RO2 * 0.6"
+HO13C5O2__HO13CO4C5 <- "8.40E-13 * RO2 * 0.2"
+
+HO13C5OOH__HO13C5O_OH <- "J41"
+HO13C5OOH_OH__HO13CO4C5_OH <- "3.98E-11"
+
+HO13C5O__HOC2H4CHO_CH3CHO_HO2 <- "2.00E14 * exp(-4714/temp)"
+
+HO13CO4C5__CH3CO3_HOC2H4CHO_HO2 <- "J22"
+HO13CO4C5_OH__HO1CO34C5_HO2 <- "1.51E-11"
+
+HO1CO34C5__CH3CO3_HOC2H4CO3 <- "J35"
+HO1CO34C5_OH__CO23C4CHO_HO2 <- "1.39E-11"
+
+CO23C4CHO__BIACETO2_HO2_CO <- "J15"
+CO23C4CHO__CH3CO3_HCOCH2CO3 <- "J35"
+CO23C4CHO_NO3__CO23C4CO3_HNO3 <- "KNO3AL * 5.5"
+CO23C4CHO_OH__CO23C4CO3 <- "6.65E-11"
+
+HCOCH2CO3_HO2__HCOCH2CO2H_O3 <- "KAPHO2 * 0.15"
+HCOCH2CO3_HO2__HCOCH2CO3H <- "KAPHO2 * 0.41"
+HCOCH2CO3_HO2__HCOCH2O2_OH <- "KAPHO2 * 0.44"
+HCOCH2CO3_NO__HCOCH2O2_NO2 <- "KAPNO"
+HCOCH2CO3_NO2__C3PAN2 <- "KFPAN"
+HCOCH2CO3_NO3__HCOCH2O2_NO2 <- "KRO2NO3 * 1.74"
+HCOCH2CO3__HCOCH2CO2H <- "1.00E-11 * RO2 * 0.3"
+HCOCH2CO3__HCOCH2O2 <- "1.00E-11 * RO2 * 0.7"
+
+HCOCH2CO2H__HCOCH2O2_HO2 <- "J15"
+HCOCH2CO2H_OH__HCOCH2O2 <- "2.14E-11"
+
+HCOCH2CO3H__HCOCH2O2_OH <- "J41"
+HCOCH2CO3H__HCOCH2O2_OH <- "J15"
+HCOCH2CO3H_OH__HCOCH2CO3 <- "2.49E-11"
+
+C3PAN2__HCOCH2CO3_NO2 <- "KBPAN"
+C3PAN2_OH__GLYOX_CO_NO2 <-  "2.10E-11"
+
+CO23C4CO3_HO2__BIACETO2_OH <- "KAPHO2 * 0.44"
+CO23C4CO3_HO2__CO23C4CO3H <- "KAPHO2 * 0.56"
+CO23C4CO3_NO__BIACETO2_NO2 <- "KAPNO"
+CO23C4CO3_NO2__C5PAN9 <- "KFPAN"
+CO23C4CO3_NO3__BIACETO2_NO2 <- "KRO2NO3 * 1.74"
+CO23C4CO3__BIACETO2 <- "1.00E-11 * RO2"
+
+CO23C4CO3H__BIACETO2_OH <- "J41"
+CO23C4CO3H__BIACETO2_OH <- "J15"
+CO23C4CO3H_OH__CO23C4CO3  <- "4.23E-12"
+
+C5PAN9__CO23C4CO3_NO2 <- "KBPAN"
+C5PAN9_OH__CO23C3CHO_CO_NO2 <- "3.12E-13"
+
+HO13C5O2_HO2__HO13C5OOH <- "KRO2HO2 * 0.706"
+HO13C5O2_NO__HO13C5NO3 <- "KRO2NO * 0.026"
+HO13C5O2_NO__HO13C5O_NO2 <- "KRO2NO * 0.974"
+HO13C5O2_NO3__HO13C5O_NO2 <- "KRO2NO3"
+HO13C5O2__HO134C5 <- "8.40E-13 * RO2 * 0.2"
+HO13C5O2__HO13C5O <- "8.40E-13 * RO2 * 0.6"
+HO13C5O2__HO13CO4C5 <- "8.40E-13 * RO2 * 0.2"
+
+HO13C5NO3__HO13C5O_NO2 <- "J53"
+HO13C5NO3_OH__HO13CO4C5_NO2 <- "7.51E-12"
+
+HO134C5_OH__HO13CO4C5_HO2 <- "2.46E-11"
+
+HO3C4CHO__HO3C4O2_HO2_CO <- "J15"
+HO3C4CHO_NO3__HO3C4CO3_HNO3 <- "KNO3AL * 5.5"
+HO3C4CHO_OH__CO3C4CHO_HO2 <- "5.56E-11 * 0.611"
+HO3C4CHO_OH__HO3C4CO3 <- "5.56E-11 * 0.389"
+
+HO3C4O2_HO2__HO3C4OOH <- "KRO2HO2 * 0.625"
+HO3C4O2_NO__HO3C4NO3 <- "KRO2NO * 0.017"
+HO3C4O2_NO__HO3C4O_NO2 <- "KRO2NO * 0.983"
+HO3C4O2_NO3__HO3C4O_NO2 <- "KRO2NO3"
+HO3C4O2__HO3C3CHO <- "2.00E-12 * RO2 * 0.2"
+HO3C4O2__HO3C4O <- "2.00E-12 * RO2 * 0.6"
+HO3C4O2__NBUTOLAOH <- "2.00E-12 * RO2 * 0.2"
+
+HO3C4OOH_OH__HO3C3CHO_OH <- "2.14E-11"
+HO3C4OOH_OH__HO3C4O2 <- "1.90E-12 * exp(190/temp)"
+HO3C4OOH__HO3C4O_OH <- "J41"
+
+HO3C3CHO_NO3__HO3C3CO3_HNO3 <- "KNO3AL * 4.0"
+HO3C3CHO_OH__HO3C3CO3 <- "3.08E-11"
+HO3C3CHO__C2H5CHO_HCHO_HO2 <- "J15"
+
+HO3C3CO3_HO2__C2H5CHO_HO2_OH <- "KAPHO2 * 0.44"
+HO3C3CO3_HO2__HO3C3CO3H <- "KAPHO2 * 0.56"
+HO3C3CO3_NO__C2H5CHO_HO2_NO2 <- "KAPNO"
+HO3C3CO3_NO2__HO3C3PAN <- "KFPAN"
+HO3C3CO3_NO3__C2H5CHO_HO2_NO2 <- "KRO2NO3 * 1.74"
+HO3C3CO3__C2H5CHO_HO2 <- "1.00E-11 * RO2"
+
+HO3C3CO3H_OH__HO3C3CO3 <- "1.38E-11"
+HO3C3CO3H__C2H5CHO_HO2_OH <- "J41"
+
+HO3C3PAN_OH__C2H5CHO_CO_NO2 <- "3.82E-12"
+HO3C3PAN__HO3C3CO3_NO2 <- "KBPAN"
+
+HO3C4O__C2H5CHO_HCHO_HO2 <- "2.00E14 * exp(-5538/temp)"
+
+HO3C4NO3_OH__HO3C3CHO_NO2 <- "3.03E-12"
+
+NBUTOLAOH_OH__MEKCOH_HO2 <- "1.59E-11"
+
+HO3C4CO3_HO2__HO3C4CO3H <- "KAPHO2 * 0.56"
+HO3C4CO3_HO2__HO3C4O2_OH <- "KAPHO2 * 0.44"
+HO3C4CO3_NO__HO3C4O2_NO2 <- "KAPNO"
+HO3C4CO3_NO2__C5PAN8 <- "KFPAN"
+HO3C4CO3_NO3__HO3C4O2_NO2 <- "KRO2NO3 * 1.74"
+HO3C4CO3__HO3C4O2 <- "1.00E-11 * RO2"
+
+HO3C4CO3H__HO3C4O2_OH <- "J41"
+HO3C4CO3H_OH__HO3C4CO3 <- "3.84E-11"
+
+C5PAN8__HO3C4CO3_NO2 <- "KBPAN"
+C5PAN8_OH__HO3C3CHO_CO_NO2 <- "1.20E-11"
+
+CO3C4CHO__MEKCO2_HO2_CO <- "J15"
+CO3C4CHO_NO3__CO3C4CO3_HNO3 <- "KNO3AL * 5.5"
+CO3C4CHO_OH__CO3C4CO3 <- "6.76E-11"
+
+CO3C4CO3_HO2__CO3C4CO2H_O3 <- "KAPHO2 * 0.15"
+CO3C4CO3_HO2__CO3C4CO3H <- "KAPHO2 * 0.41"
+CO3C4CO3_HO2__MEKCO2_OH <- "KAPHO2 * 0.44"
+CO3C4CO3_NO__MEKCO2_NO2 <- "KAPNO"
+CO3C4CO3_NO2__C5PAN16 <- "KFPAN"
+CO3C4CO3_NO3__MEKCO2_NO2 <- "KRO2NO3 * 1.74"
+CO3C4CO3__CO3C4CO2H <- "1.00E-11 * RO2 * 0.3"
+CO3C4CO3__MEKCO2 <- "1.00E-11 * RO2 * 0.7"
+
+CO3C4CO2H__MEKCO2_HO2 <- "J22"
+CO3C4CO2H_OH__MEKCO2 <- "1.90E-12"
+
+CO3C4CO3H__MEKCO2_OH <- "J41"
+CO3C4CO3H__MEKCO2_OH <- "J22"
+CO3C4CO3H_OH__CO3C4CO3 <- "5.36E-12"
+
+C5PAN16__CO3C4CO3_NO2 <- "KBPAN"
+C5PAN16_OH__EGLYOX_CO_NO2 <- "1.44E-12"
+
+HO3C5NO3__HO3C5O_NO2 <- "J53"
+HO3C5NO3_OH__HO3C4CHO_NO2 <- "1.20E-11"
+
+HO13C5_OH__HO1CO3C5_HO2 <- "1.61E-11"
+
+HO1CO3C5_OH__CO3C4CHO_HO2 <- "1.46E-11"
+HO1CO3C5__C2H5CO3_HOCH2CH2O2 <- "J22"
+
+PE2ENEBO2_HO2__C53OH2OOH <- "KRO2HO2 * 0.706"
+PE2ENEBO2_NO__PE2ENEBNO3 <- "KRO2NO * 0.064"
+PE2ENEBO2_NO__PE2ENEBO_NO2 <- "KRO2NO * 0.936"
+PE2ENEBO2_NO3__PE2ENEBO_NO2 <- "KRO2NO3"
+PE2ENEBO2__C523OH <- "8.80D-13 * RO2 * 0.2"
+PE2ENEBO2__MPRKAOH <- "8.80D-13 * RO2 * 0.2" 
+PE2ENEBO2__PE2ENEBO <- "8.80D-13 * RO2 * 0.6"
+
+C53OH2OOH_OH__MPRKAOH_OH <- "3.19E-11"
+C53OH2OOH_OH__PE2ENEBO2 <- "1.90E-12 * exp(190/temp)"
+C53OH2OOH__PE2ENEBO_OH <- "J41"
+
+MPRKAOH_OH__CO23C5_HO2 <- "1.00E-11"
+MPRKAOH__C2H5CHO_CH3CO3_HO2 <- "J22"
+
+CO23C5_OH__CO23C54O2 <- "1.38E-12"
+CO23C5__CH3CO3_C2H5CO3 <- "J35"
+
+CO23C54O2_HO2__CO23C54OOH <- "KRO2HO2 * 0.706"
+CO23C54O2_NO__CO23C54O_NO2 <- "KRO2NO"
+CO23C54O2_NO3__CO23C54O_NO2 <- "KRO2NO3"
+CO23C54O2__CO23C54O <- "8.80E-13 * RO2"
+
+CO23C54OOH_OH__CO23C54O2 <- "2.24E-11"
+CO23C54OOH__CO23C54O_OH <- "J41"
+CO23C54OOH__CO23C54O_OH <- "J35"
+
+CO23C54O__CH3CHO_CH3CO3_CO <- "KDEC"
+
+PE2ENEBO__CH3CHO_C2H5CHO_HO2 <- "2.00E14 * exp(-4714/temp)"
+
+PE2ENEBNO3_OH__MPRKAOH_NO2 <- "3.25E-12"
+
+C523OH_OH__DIEKAOH_HO2 <- "2.14E-11"
+
+DIEKAOH_OH__CO23C5 <- "1.02E-11"
+DIEKAOH__CH3CHO_C2H5CO3 <- "J22"
+
+IPEAOH_OH__BUT2CHO_HO2 <- "1.12E-11 * 0.288"
+IPEAOH_OH__HM2C43O2 <- "1.12E-11 * 0.258"
+IPEAOH_OH__M2BUOL2O2 <- "1.12E-11 * 0.454"
+
+BUT2CHO__CH3CHO_C3H6 <- "J16"
+BUT2CHO__SC4H9O2_HO2_CO <- "J17"
+BUT2CHO_NO3__BUT2CO3_HNO3 <- "KNO3AL * 8.5"
+BUT2CHO_OH__BUT2CO3 <- "2.69E-11"
+
+SC4H9O2_HO2__SC4H9OOH <- "KRO2HO2 * 0.625"
+SC4H9O2_NO__SC4H9NO3 <- "KRO2NO * 0.090"
+SC4H9O2_NO__SC4H9O_NO2 <- "KRO2NO * 0.910"
+SC4H9O2_NO3__SC4H9O_NO2 <- "KRO2NO3"
+SC4H9O2__BUT2OL <- "2.50E-13 * RO2 * 0.2"
+SC4H9O2__MEK <- "2.50E-13 * RO2 * 0.2"
+SC4H9O2__SC4H9O <- "2.50E-13 * RO2 * 0.6"
+
+SC4H9OOH_OH__MEK <- "2.15E-11"
+SC4H9OOH_OH__SC4H9O2 <- "1.90E-12 * exp(190/temp)"
+SC4H9OOH__SC4H9O_OH <- "J41"
+
+SC4H9O__CH3CHO_C2H5O2 <- "5.6E12 * exp(-5780/temp)"
+SC4H9O__MEK_HO2 <- "1.5E-14 * exp(-200/temp) * O2"
+
+SC4H9NO3_OH__MEK_NO2 <- "8.6E-13"
+SC4H9NO3__SC4H9O_NO2 <- "J54"
+
+BUT2CO3_HO2__BUT2CO2H_O3 <- "KAPHO2 * 0.15"
+BUT2CO3_HO2__BUT2CO3H <- "KAPHO2 * 0.41"
+BUT2CO3_HO2__SC4H9O2_OH <- "KAPHO2 * 0.44"
+BUT2CO3_NO__SC4H9O2_NO2 <- "KAPNO"
+BUT2CO3_NO2__C5PAN4 <- "KFPAN"
+BUT2CO3_NO3__SC4H9O2_NO2 <- "KRO2NO3 * 1.74"
+BUT2CO3__BUT2CO2H <- "1.00E-11 * RO2 * 0.3"
+BUT2CO3__SC4H9O2 <- "1.00E-11 * RO2 * 0.7"
+
+BUT2CO2H_OH__SC4H9O2 <- "6.26E-12"
+
+BUT2CO3H__SC4H9O2_OH <- "J41"
+BUT2CO3H_OH__BUT2CO3 <- "9.72E-12"
+
+C5PAN4__BUT2CO3_NO2 <- "KBPAN"
+C5PAN4_OH__MEK_CO_NO2 <- "2.20E-12"
+
+HM2C43O2_HO2__HM2C43OOH <- "KRO2HO2 * 0.706"
+HM2C43O2_NO__HM2C43NO3 <- "KRO2NO * 0.129"
+HM2C43O2_NO__HM2C43O_NO2 <- "KRO2NO * 0.871"
+HM2C43O2_NO3__HM2C43O_NO2 <- "KRO2NO3"
+HM2C43O2__HM2C43O <- "1.30E-12 * RO2 * 0.6"
+HM2C43O2__HO13M2C4 <- "1.30E-12 * RO2 * 0.2" 
+HM2C43O2__MIPKBOH <- "1.30E-12 * RO2 * 0.2"
+
+HM2C43OOH__HM2C43O_OH <- "J41"
+HM2C43OOH_OH__MIPKBOH_OH <- "3.11E-11"
+
+HM2C43O__MIPKBOH_HO2 <- "KROSEC * O2"
+
+MIPKBOH__CH3CO3_HYPROPO2 <- "J22"
+MIPKBOH_OH__CO2C43CHO_HO2 <- "1.51E-11"
+
+CO2C43CHO__MEKBO2_HO2_CO <- "J17"
+CO2C43CHO_NO3__C41CO3_HNO3 <- "KNO3AL * 8.5"
+CO2C43CHO_OH__C41CO3 <- "2.26E-11"
+
+C41CO3_HO2__C41CO2H_O3 <- "KAPHO2 * 0.15"
+C41CO3_HO2__C41CO3H <- "KAPHO2 * 0.41"
+C41CO3_HO2__MEKBO2_OH <- "KAPHO2 * 0.44"
+C41CO3_NO__MEKBO2_NO2 <- "KAPNO"
+C41CO3_NO2__C5PAN7 <- "KFPAN"
+C41CO3_NO3__MEKBO2_NO2 <- "KRO2NO3 * 1.74"
+C41CO3__C41CO2H <- "1.00E-11 * RO2 * 0.3"
+C41CO3__MEKBO2 <- "1.00E-11 * RO2 * 0.7"
+
+C41CO2H__CH3CO3_C2H5O2 <- "J22"
+C41CO2H_OH__MEKBO2  <- "4.00E-12"
+
+C41CO3H__CH3CO3_C2H5CO3 <- "J22"
+C41CO3H__MEKBO2_OH <- "J41"
+C41CO3H_OH__C41CO3 <- "7.56E-12"
+
+C5PAN7__C41CO3_NO2 <- "KBPAN"
+C5PAN7_OH__BIACET_CO_NO2 <- "3.96E-12"
+
+HM2C43O2_HO2__HM2C43OOH <- "KRO2HO2 * 0.706"
+HM2C43O2_NO__HM2C43NO3 <- "KRO2NO * 0.129"
+HM2C43O2_NO__HM2C43O_NO2 <- "KRO2NO * 0.871"
+HM2C43O2_NO3__HM2C43O_NO2 <- "KRO2NO3"
+HM2C43O2__HM2C43O <- "1.30E-12 * RO2 * 0.6"
+HM2C43O2__HO13M2C4 <- "1.30E-12 * RO2 * 0.2"
+HM2C43O2__MIPKBOH <- "1.30E-12 * RO2 * 0.2"
+
+HM2C43NO3__HM2C43O_NO2 <- "J54"
+HM2C43NO3_OH__MIPKBOH_NO2 <- "4.93E-12"
+
+HO13M2C4_OH__MIPKBOH_HO2 <- "1.59E-11"
+
+M2BUOL2O2_HO2__M2BUOL2OOH <- "KRO2HO2 * 0.706"
+M2BUOL2O2_NO__M2BUOL2NO3 <- "KRO2NO * 0.019"
+M2BUOL2O2_NO__M2BUOL2O_NO2 <- "KRO2NO * 0.981"
+M2BUOL2O2_NO3__M2BUOL2O_NO2 <- "KRO2NO3"
+M2BUOL2O2__M2BUOL2O <- "9.20E-14 * RO2 * 0.7"
+M2BUOL2O2__M2BUOL2OH <- "9.20E-14 * RO2 * 0.3"
+
+M2BUOL2OOH_OH__M2BUOL2O2 <- "9.24E-12"
+M2BUOL2OOH__M2BUOL2O_OH <- "J41"
+
+M2BUOL2O__MEK_HCHO_HO2 <- "2.00E14 * exp(-5902/temp)"
+
+M2BUOL2NO3_OH__ACETOL_CH3CHO_NO2 <- "1.18E-12"
+
+M2BUOL2OH_OH__PROL1MCHO_HO2 <- "5.78E-12"
+
+PROL1MCHO_NO3__PROL1MCO3_HNO3 <- "KNO3AL * 8.5"
+PROL1MCHO_OH__PROL1MCO3 <- "2.52E-11"
+PROL1MCHO__MEK_HO2_HO2_CO <- "J17"
+
+PROL1MCO3_HO2__MEK_HO2_OH <- "KAPHO2 * 0.44"
+PROL1MCO3_HO2__PROL1MCO3H <- "KAPHO2 * 0.56"
+PROL1MCO3_NO__MEK_HO2_NO2 <- "KAPNO"
+PROL1MCO3_NO2__PROL1MPAN <- "KFPAN"
+PROL1MCO3_NO3__MEK_HO2_NO2 <- "KRO2NO3 * 1.74"
+PROL1MCO3__MEK_HO2 <- "1.00E-11 * RO2"
+
+PROL1MCO3H_OH__PROL1MCO3 <- "8.08E-12"
+PROL1MCO3H__MEK_HO2_OH <- "J41"
+
+PROL1MPAN_OH__MEK_CO_NO2 <- "1.62E-12"
+PROL1MPAN__PROL1MCO3_NO2 <- "KBPAN"
+
+C3ME3CHO_NO3__C3ME3CO3_HNO3 <- "KNO3AL * 8.5"
+C3ME3CHO_OH__C3ME3CHOO2 <- "2.95E-11 * 0.267"
+C3ME3CHO_OH__C3ME3CO3 <- "2.95E-11 * 0.733"
+
+C3ME3CHOO2_HO2__C3M3CHOOOH <- "KRO2HO2 * 0.706"
+C3ME3CHOO2_NO__C3M3CHONO3 <- "KRO2NO * 0.039"
+C3ME3CHOO2_NO__C3ME3CHOO_NO2 <- "KRO2NO * 0.961"
+C3ME3CHOO2_NO3__C3ME3CHOO_NO2 <- "KRO2NO3"
+C3ME3CHOO2__C3ME3CHOO <- "6.70E-15 * RO2 * 0.7"
+C3ME3CHOO2__H2M2C3CHO <- "6.70E-15 * RO2 * 0.3"
+
+C3M3CHOOOH_OH__C3ME3CHOO2 <- "2.56E-11"
+C3M3CHOOOH__C3ME3CHOO_OH <- "J41"
+C3M3CHOOOH__C3ME3CHOO_OH <- "J17"
+
+C3ME3CHOO__HCOCH2O2_CH3COCH3 <- "KDEC"
+
+C3M3CHONO3_OH__GLYOX_CH3COCH3_NO2 <- "2.10E-11"
+C3M3CHONO3__C3ME3CHOO_NO2 <- "J55"
+C3M3CHONO3__MPRBNO3O2_CO_HO2 <- "J17"
+
+MPRBNO3O2_HO2__MPRBNO3OOH <- "KRO2HO2 * 0.625"
+MPRBNO3O2_NO__MPRBNO3O_NO2 <- "KRO2NO"
+MPRBNO3O2_NO3__MPRBNO3O_NO2 <- "KRO2NO3"
+MPRBNO3O2__IBUTOLBNO3 <- "1.30E-12 * RO2 * 0.2"
+MPRBNO3O2__MPRBNO3CHO <- "1.30E-12 * RO2 * 0.2"
+MPRBNO3O2__MPRBNO3O <- "1.30E-12 * RO2 * 0.6"
+
+MPRBNO3OOH_OH__MPRBNO3O2 <- "5.22E-12"
+MPRBNO3OOH__MPRBNO3O_OH <- "J41"
+
+MPRBNO3O__CH3COCH3_HCHO_NO2 <- "7.00E3"
+MPRBNO3O__MPRBNO3CHO_HO2 <- "KROPRIM * O2"
+
+MPRBNO3CHO_NO3__MPRBNO3CO3_HNO3 <- "KNO3AL * 4.0"
+MPRBNO3CHO_OH__MPRBNO3CO3 <- "3.61E-12"
+MPRBNO3CHO__CH3COCH3_NO2_HO2_CO <- "J15"
+MPRBNO3CHO__M2PROPAL2O_NO2 <- "J56"
+
+MPRBNO3CO3_HO2__CH3COCH3_NO2_OH <- "KAPHO2 * 0.44"
+MPRBNO3CO3_HO2__MPRNO3CO2H_O3 <- "KAPHO2 * 0.15"
+MPRBNO3CO3_HO2__MPRNO3CO3H <- "KAPHO2 * 0.41"
+MPRBNO3CO3_NO__CH3COCH3_NO2_NO2 <- "KAPNO"
+MPRBNO3CO3_NO2__MPRBNO3PAN <- "KFPAN"
+MPRBNO3CO3_NO3__CH3COCH3_NO2_NO2 <- "KRO2NO3 * 1.74"
+MPRBNO3CO3__CH3COCH3_NO2 <- "1.00E-11 * RO2 * 0.7"
+MPRBNO3CO3__MPRNO3CO2H <- "1.00E-11 * RO2 * 0.3"
+
+MPRNO3CO2H_OH__CH3COCH3_NO2 <- "3.79E-13"
+
+MPRNO3CO3H_OH__MPRBNO3CO3 <- "4.08E-12"
+MPRNO3CO3H__CH3COCH3_NO2_OH <- "J41"
+
+MPRBNO3PAN_OH__CH3COCH3_CO_NO2_NO2 <- "5.44E-14"
+MPRBNO3PAN__MPRBNO3CO3_NO2 <- "KBPAN"
+
+H2M2C3CHO__TBUTOLO2_HO2_CO <- "J15"
+H2M2C3CHO_NO3__H2M2C3CO3_HNO3 <- "KNO3AL * 8.5"
+H2M2C3CHO_OH__H2M2C3CO3 <- "2.21E-11"
+
+H2M2C3CO3_HO2__H2M2C3CO3H <- "KAPHO2 * 0.56"
+H2M2C3CO3_HO2__TBUTOLO2_OH <- "KAPHO2 * 0.44"
+H2M2C3CO3_NO__TBUTOLO2_NO2 <- "KAPNO"
+H2M2C3CO3_NO2__C5PAN11 <- "KFPAN"
+H2M2C3CO3_NO3__TBUTOLO2_NO2 <- "KRO2NO3 * 1.74"
+H2M2C3CO3__TBUTOLO2 <- "1.00E-11 * RO2"
+
+H2M2C3CO3H__TBUTOLO2_OH <- "J41"
+H2M2C3CO3H_OH__H2M2C3CO3 <- "4.83E-12"
+
+C5PAN11__H2M2C3CO3_NO2 <- "KBPAN"
+C5PAN11_OH__IBUTALOH_CO_NO2 <- "1.23E-12"
+
+C3ME3CO3_HO2__C3ME3CO2H_O3 <- "KAPHO2 * 0.15"
+C3ME3CO3_HO2__C3ME3CO3H <- "KAPHO2 * 0.41"
+C3ME3CO3_HO2__IC4H9O2_OH <- "KAPHO2 * 0.44"
+C3ME3CO3_NO__IC4H9O2_NO2 <- "KAPNO"
+C3ME3CO3_NO2__C3ME3PAN <- "KFPAN"
+C3ME3CO3_NO3__IC4H9O2_NO2 <- "KRO2NO3 * 1.74"
+C3ME3CO3__C3ME3CO2H <- "1.00E-11 * RO2 * 0.3"
+C3ME3CO3__IC4H9O2 <- "1.00E-11 * RO2 * 0.7"
+
+C3ME3CO2H_OH__IC4H9O2 <- "8.88E-12"
+
+IC4H9O2_HO2__IC4H9OOH <- "KRO2HO2 * 0.625"
+IC4H9O2_NO__IC4H9NO3 <- "KRO2NO * 0.033"
+IC4H9O2_NO__IC4H9O_NO2 <- "KRO2NO * 0.967"
+IC4H9O2_NO3__IC4H9O_NO2 <- "KRO2NO3"
+IC4H9O2__IBUTOL <- "1.30E-12 * RO2 * 0.2"
+IC4H9O2__IC4H9O <- "1.30E-12 * RO2 * 0.6"
+IC4H9O2__IPRCHO <- "1.30E-12 * RO2 * 0.2"
+
+IC4H9OOH__IC4H9O_OH <- "J41"
+IC4H9OOH_OH__IC4H9O2 <- "1.90E-12 * exp(190/temp)"
+IC4H9OOH_OH__IPRCHO_OH <- "1.24E-11"
+
+IC4H9O__IPRCHO_HO2 <- "KROPRIM * O2"
+
+IC4H9NO3__IC4H9O_NO2 <- "J53"
+IC4H9NO3_OH__IPRCHO_NO2 <- "7.69E-13"

@@ -1,0 +1,6 @@
+txt = readLines('rosalind_mer.txt')
+a = as.numeric(unlist(strsplit(txt[2],' ')))
+b = as.numeric(unlist(strsplit(txt[4],' ')))
+ans = sort(c(a,b))
+ans = paste(ans,collapse = ' ')
+writeLines(ans,'mer.txt')

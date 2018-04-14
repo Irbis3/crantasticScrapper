@@ -1,0 +1,10 @@
+source('tradeoffFigureCode.R')
+load('growthSurvivalResults.RData')
+pdf('growthSurvivalFigure.pdf')
+draw.several.CVvsMstar(growthSurvivalTradeoff, draw.growthSurvival.tradeoff)
+dev.off()
+load('growthFecundityResults.RData')
+pdf('growthFecundityFigure.pdf')
+draw.several.CVvsMstar(growthFecundityTradeoff, draw.growthFecundity.tradeoff)
+dev.off()
+

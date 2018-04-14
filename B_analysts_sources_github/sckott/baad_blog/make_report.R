@@ -1,0 +1,8 @@
+library(knitr, quietly = TRUE)
+library(maps, quietly = TRUE)
+library(mapdata, quietly = TRUE)
+library(plyr, quietly = TRUE)
+suppressPackageStartupMessages(library(gdata))
+source("report-fun.R")
+data <- readRDS("../output/baad.rds")
+printStudyReport(data, "Kitazawa1959")

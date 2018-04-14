@@ -1,0 +1,1 @@
+funB <- makeClosure()

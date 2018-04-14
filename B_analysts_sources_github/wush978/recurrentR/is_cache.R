@@ -1,0 +1,1 @@
+is_cache <- function(obj, name) exists(name, envir=obj@cache, inherits=FALSE)

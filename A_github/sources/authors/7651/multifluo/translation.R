@@ -1,0 +1,39 @@
+translation <-
+function(dtt,dtc=NULL,x,y,interact=FALSE,dtt.lim=NULL,dtc.lim=NULL,return.vect=FALSE)
+{
+	if(interact)
+	{
+		img1=plotimage(dtt,lim=dtt.lim)
+		point1=grabPoint(img1)
+		img2=plotimage(dtc,lim=dtc.lim)
+		point2=grabPoint(img2)
+		segment=point2-point1
+		x=segment[1]
+		y=segment[2]
+	}
+	res=dtt
+	res[,]=NA
+	xmax=dim(dtt)[1]
+	ymax=dim(dtt)[2]
+	x0=abs(x)
+	y0=abs(y)
+	if(x>=0&y>=0)
+	{
+		res[(1+x0):xmax,(1+y0):ymax]=as.matrix(dtt[1:(xmax-x0),1:(ymax-y0)])
+	}
+	if(x<=0&y>=0)
+	{
+		res[1:(xmax-x0),(1+y0):ymax]=as.matrix(dtt[(1+x0):xmax,1:(ymax-y0)])
+	}
+	if(x<=0&y<=0)
+	{
+		res[1:(xmax-x0),1:(ymax-y0)]=as.matrix(dtt[(1+x0):xmax,(1+y0):ymax])
+	}
+	if(x>=0&y<=0)
+	{
+		res[(1+x0):xmax,1:(ymax-y0)]=as.matrix(dtt[1:(xmax-x0),(1+y0):ymax])
+	}
+	print(paste("Translation of x=", round(x,2),"; y=",round(y,2),sep=""))
+	if(return.vect){list.res=list();list.res[["data"]]=res; list.res[["translation"]]=c(x,y); res=list.res}
+	return(res)
+}

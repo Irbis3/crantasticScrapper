@@ -1,0 +1,15 @@
+post_obj <-
+structure(list(method = "search", searchMethod = "true", searchTarget = "ATM", 
+    orgName = "", orgId = "", hid_1 = "1", tenderName = "", tenderId = "", 
+    tenderStatus = "4,5,21,29", tenderWay = "", awardAnnounceStartDate = "104/12/01", 
+    awardAnnounceEndDate = "104/12/01", proctrgCate = "", tenderRange = "", 
+    minBudget = "", maxBudget = "", item = "", hid_2 = "1", gottenVendorName = "", 
+    gottenVendorId = "", hid_3 = "1", submitVendorName = "", 
+    submitVendorId = "", location = "", priorityCate = "", isReConstruct = "", 
+    btnQuery = "查詢"), .Names = c("method", "searchMethod", 
+"searchTarget", "orgName", "orgId", "hid_1", "tenderName", "tenderId", 
+"tenderStatus", "tenderWay", "awardAnnounceStartDate", "awardAnnounceEndDate", 
+"proctrgCate", "tenderRange", "minBudget", "maxBudget", "item", 
+"hid_2", "gottenVendorName", "gottenVendorId", "hid_3", "submitVendorName", 
+"submitVendorId", "location", "priorityCate", "isReConstruct", 
+"btnQuery"))

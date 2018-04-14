@@ -1,0 +1,14 @@
+#!/bin/sh
+   
+cd ~/git/Rcpp11/book
+
+git checkout master
+
+rm -frv /tmp/_book
+gitbook build . --output=/tmp/_book
+
+git checkout gh-pages
+cp -frv /tmp/_book/* ./
+git commit -a -m "update generated static site"
+git checkout master  
+

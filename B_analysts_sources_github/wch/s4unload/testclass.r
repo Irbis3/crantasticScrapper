@@ -1,0 +1,1 @@
+setClass("TestClass", contains = "lm")

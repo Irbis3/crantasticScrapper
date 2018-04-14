@@ -1,0 +1,16 @@
+library('testthat')
+library('yaml')
+library('foreign')
+library('ggplot2')
+library('stringr')
+library('tseries')
+library('gtools')
+library('ascii')
+#theme_set(theme_bw())
+
+
+#library('reshape')
+#library('plyr')
+#library('stringr')
+#library('ggplot2')
+#library('log4r')

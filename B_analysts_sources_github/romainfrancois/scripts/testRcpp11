@@ -1,0 +1,22 @@
+#!/usr/bin/Rscript 
+
+require(methods)
+require(devtools)
+require(testthat)
+require(attributes)
+
+setwd( "~/git/Rcpp11" )
+tf <- tempfile()
+dir.create(tf)
+system( sprintf( "cp -fr Rcpp-test/* %s/", tf ) )
+unlink( sprintf("%s/RcppExports.R", tf) )
+unlink( sprintf("%s/src/RcppExports.cpp", tf) )
+DESCRIPTION <- c( 
+  readLines( file.path( tf, "DESCRIPTION" ) ), "SystemRequirements: C++11" 
+)
+DESCRIPTION <- grep( "[^[:space:]]+", DESCRIPTION, value = TRUE ) 
+writeLines( DESCRIPTION, file.path( tf, "DESCRIPTION" ) ) 
+compileAttributes( tf )
+load_all(tf, recompile = TRUE)
+test_package('RcppTest')
+
