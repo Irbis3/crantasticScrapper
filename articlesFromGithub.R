@@ -1,27 +1,12 @@
 library(httr)
+library(dplyr)
+library(rvest)
 
 authors = c()
 for( i in 1:10) {
 github_url <- gsub("page_num", i, "https://github.com/search?l=&p=page_num&q=language%3AR&type=Users")
 authors <- c(authors, read_html(github_url) %>% html_nodes(".user-list-info a") %>% html_text())
 }
-
-author <- authors[5]
-
-repos_url <- gsub("author", author,"https://github.com/author?utf8=%E2%9C%93&tab=repositories&q=&type=source&language=r")
-author_repos <- read_html(repos_url) %>% html_nodes(".mb-1 a") %>% html_text() %>% gsub("^\\s+|\\s+$", "", .)
-
-#analyze repo
-
-read_html(author_repos_url[1])
-author_repos_url[1]
-
-author
-
-package <- author_repos[2]
-package
-
-repo_url
 
 download_R_source_from_github <- function(package_name, author_name) {
   repo_url <- gsub("author", author_name, "https://github.com/author/package") %>% gsub("package", package_name, .)
@@ -68,4 +53,4 @@ lapply(authors, function(author) {
     download_articles_for_author(author)
   }
 })
-           
+

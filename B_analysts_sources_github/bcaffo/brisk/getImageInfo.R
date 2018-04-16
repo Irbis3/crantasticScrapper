@@ -4,7 +4,7 @@ getImageInfo <- function(filename, type = NULL){
   if (!file.exists(filename)) stop(paste("File ", filename, " does not exist"))  
 
   ##unspecified file type, try to get it from the extension
-  if (type = NULL){
+  if (is.null(type)){
     temp <- strsplit(filename, "/.")[[1]]
     type <- temp[length(temp)]
   }
